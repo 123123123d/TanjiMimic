@@ -7,7 +7,7 @@
     <ProjectGuid>{96950D30-2656-4B8D-BE85-C2A05BCFF4C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TanjiMimic</RootNamespace>
+    <RootNamespace>Sulakore</RootNamespace>
     <AssemblyName>TanjiMimic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -45,7 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources\PlayerSpeakEventArgs.cs" />
+    <Compile Include="Properties\Data.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Data.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Events\HostSendMessageEventArgs.cs" />
+    <Compile Include="Resources\Events\PlayerActionEventArgs.cs" />
+    <Compile Include="Resources\Events\PlayerSendMessageEventArgs.cs" />
+    <Compile Include="Resources\Events\PlayerSignEventArgs.cs" />
+    <Compile Include="Resources\Events\PlayerSpeakEventArgs.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -54,15 +63,25 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\THeader.cs" />
+    <Compile Include="Utilities\TM.cs" />
+    <Compile Include="Utilities\TResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\Tanji.ico" />
+    <None Include="app.config" />
+    <None Include="Properties\app.config" />
+    <None Include="Properties\Data.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Data.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Icons\Tanji.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

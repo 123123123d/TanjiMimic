@@ -2,8 +2,9 @@
 
 using Sulakore.Habbo;
 using Sulakore.Protocol;
+using Sulakore.Communication;
 
-namespace Sulakore.Communication
+namespace TanjiMimic.Resources.Events
 {
     public class PlayerSpeakEventArgs : EventArgs, IHabboEvent
     {

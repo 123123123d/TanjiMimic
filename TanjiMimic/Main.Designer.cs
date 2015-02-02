@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NovoMimicLbl = new System.Windows.Forms.Label();
             this.ToolboxTab = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ToolsOptionsGrpbx = new System.Windows.Forms.GroupBox();
             this.MGesturesChckbx = new System.Windows.Forms.CheckBox();
             this.MClothesChckbx = new System.Windows.Forms.CheckBox();
@@ -47,10 +48,6 @@
             this.MWalkingChckbx = new System.Windows.Forms.CheckBox();
             this.MStanceChckbx = new System.Windows.Forms.CheckBox();
             this.MSpeechChckbx = new System.Windows.Forms.CheckBox();
-            this.AutoCopyCMChckbx = new System.Windows.Forms.CheckBox();
-            this.SettingsGrpbx = new System.Windows.Forms.GroupBox();
-            this.AutoLoadChckbx = new System.Windows.Forms.CheckBox();
-            this.AClearOnExit = new System.Windows.Forms.CheckBox();
             this.PlayerInformationGrpbx = new System.Windows.Forms.GroupBox();
             this.PlayerInformationPnl = new System.Windows.Forms.Panel();
             this.PDataGrid = new System.Windows.Forms.DataGridView();
@@ -61,17 +58,41 @@
             this.SelectPlayerGrpbx = new System.Windows.Forms.GroupBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.PlayerListCmbbx = new System.Windows.Forms.ComboBox();
+            this.SettingsTb = new System.Windows.Forms.TabPage();
+            this.HeaderGrpBx = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.BlacklistingGrpBx = new System.Windows.Forms.GroupBox();
+            this.BlckListStatusLbl = new System.Windows.Forms.Label();
+            this.ResetTxtBlkLst = new System.Windows.Forms.Button();
+            this.AddTxtBlkBtn = new System.Windows.Forms.Button();
+            this.RemoveBlkLstBtn = new System.Windows.Forms.Button();
+            this.BlackListCmboBx = new System.Windows.Forms.ComboBox();
+            this.BlckListTxtBx = new System.Windows.Forms.TextBox();
+            this.SettingsGrpbx = new System.Windows.Forms.GroupBox();
+            this.AClearOnExit = new System.Windows.Forms.CheckBox();
+            this.AutoCopyCMChckbx = new System.Windows.Forms.CheckBox();
+            this.AutoLoadChckbx = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.LHeadersFrmFileBtn = new System.Windows.Forms.Button();
+            this.HeadersStatusLbl = new System.Windows.Forms.Label();
             this.MainTabCtrl.SuspendLayout();
             this.HomeTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.ToolboxTab.SuspendLayout();
             this.ToolsOptionsGrpbx.SuspendLayout();
-            this.SettingsGrpbx.SuspendLayout();
             this.PlayerInformationGrpbx.SuspendLayout();
             this.PlayerInformationPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerImg)).BeginInit();
             this.SelectPlayerGrpbx.SuspendLayout();
+            this.SettingsTb.SuspendLayout();
+            this.HeaderGrpBx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.BlacklistingGrpBx.SuspendLayout();
+            this.SettingsGrpbx.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTabCtrl
@@ -79,11 +100,12 @@
             this.MainTabCtrl.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.MainTabCtrl.Controls.Add(this.HomeTab);
             this.MainTabCtrl.Controls.Add(this.ToolboxTab);
+            this.MainTabCtrl.Controls.Add(this.SettingsTb);
             this.MainTabCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabCtrl.Location = new System.Drawing.Point(0, 0);
             this.MainTabCtrl.Name = "MainTabCtrl";
             this.MainTabCtrl.SelectedIndex = 0;
-            this.MainTabCtrl.Size = new System.Drawing.Size(433, 360);
+            this.MainTabCtrl.Size = new System.Drawing.Size(433, 340);
             this.MainTabCtrl.TabIndex = 2;
             // 
             // HomeTab
@@ -93,7 +115,7 @@
             this.HomeTab.Location = new System.Drawing.Point(4, 4);
             this.HomeTab.Name = "HomeTab";
             this.HomeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.HomeTab.Size = new System.Drawing.Size(425, 334);
+            this.HomeTab.Size = new System.Drawing.Size(425, 314);
             this.HomeTab.TabIndex = 0;
             this.HomeTab.Text = "Home";
             // 
@@ -175,17 +197,25 @@
             // 
             // ToolboxTab
             // 
+            this.ToolboxTab.Controls.Add(this.groupBox2);
             this.ToolboxTab.Controls.Add(this.ToolsOptionsGrpbx);
-            this.ToolboxTab.Controls.Add(this.AutoCopyCMChckbx);
-            this.ToolboxTab.Controls.Add(this.SettingsGrpbx);
             this.ToolboxTab.Controls.Add(this.PlayerInformationGrpbx);
             this.ToolboxTab.Controls.Add(this.SelectPlayerGrpbx);
             this.ToolboxTab.Location = new System.Drawing.Point(4, 4);
             this.ToolboxTab.Name = "ToolboxTab";
             this.ToolboxTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ToolboxTab.Size = new System.Drawing.Size(425, 334);
+            this.ToolboxTab.Size = new System.Drawing.Size(425, 314);
             this.ToolboxTab.TabIndex = 2;
             this.ToolboxTab.Text = "Toolbox";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(225, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(187, 68);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Settings";
             // 
             // ToolsOptionsGrpbx
             // 
@@ -283,49 +313,6 @@
             this.MSpeechChckbx.TabIndex = 5;
             this.MSpeechChckbx.Text = "Mimic Speech";
             this.MSpeechChckbx.UseVisualStyleBackColor = true;
-            // 
-            // AutoCopyCMChckbx
-            // 
-            this.AutoCopyCMChckbx.AutoSize = true;
-            this.AutoCopyCMChckbx.Location = new System.Drawing.Point(231, 32);
-            this.AutoCopyCMChckbx.Name = "AutoCopyCMChckbx";
-            this.AutoCopyCMChckbx.Size = new System.Drawing.Size(185, 17);
-            this.AutoCopyCMChckbx.TabIndex = 8;
-            this.AutoCopyCMChckbx.Text = "Automatically Copy Clothes\\Motto";
-            this.AutoCopyCMChckbx.UseVisualStyleBackColor = true;
-            // 
-            // SettingsGrpbx
-            // 
-            this.SettingsGrpbx.Controls.Add(this.AutoLoadChckbx);
-            this.SettingsGrpbx.Controls.Add(this.AClearOnExit);
-            this.SettingsGrpbx.Location = new System.Drawing.Point(225, 4);
-            this.SettingsGrpbx.Name = "SettingsGrpbx";
-            this.SettingsGrpbx.Size = new System.Drawing.Size(193, 68);
-            this.SettingsGrpbx.TabIndex = 10;
-            this.SettingsGrpbx.TabStop = false;
-            this.SettingsGrpbx.Text = "Settings";
-            // 
-            // AutoLoadChckbx
-            // 
-            this.AutoLoadChckbx.AutoSize = true;
-            this.AutoLoadChckbx.Checked = true;
-            this.AutoLoadChckbx.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AutoLoadChckbx.Location = new System.Drawing.Point(6, 14);
-            this.AutoLoadChckbx.Name = "AutoLoadChckbx";
-            this.AutoLoadChckbx.Size = new System.Drawing.Size(170, 17);
-            this.AutoLoadChckbx.TabIndex = 1;
-            this.AutoLoadChckbx.Text = "Automatically Load Information";
-            this.AutoLoadChckbx.UseVisualStyleBackColor = true;
-            // 
-            // AClearOnExit
-            // 
-            this.AClearOnExit.AutoSize = true;
-            this.AClearOnExit.Location = new System.Drawing.Point(6, 45);
-            this.AClearOnExit.Name = "AClearOnExit";
-            this.AClearOnExit.Size = new System.Drawing.Size(183, 17);
-            this.AClearOnExit.TabIndex = 8;
-            this.AClearOnExit.Text = "Automatically Clear On Room Exit";
-            this.AClearOnExit.UseVisualStyleBackColor = true;
             // 
             // PlayerInformationGrpbx
             // 
@@ -453,11 +440,220 @@
             this.PlayerListCmbbx.TabIndex = 2;
             this.PlayerListCmbbx.SelectedIndexChanged += new System.EventHandler(this.PlayerListCmbbx_SelectedIndexChanged);
             // 
+            // SettingsTb
+            // 
+            this.SettingsTb.BackColor = System.Drawing.SystemColors.Control;
+            this.SettingsTb.Controls.Add(this.HeaderGrpBx);
+            this.SettingsTb.Controls.Add(this.BlacklistingGrpBx);
+            this.SettingsTb.Controls.Add(this.SettingsGrpbx);
+            this.SettingsTb.Location = new System.Drawing.Point(4, 4);
+            this.SettingsTb.Name = "SettingsTb";
+            this.SettingsTb.Size = new System.Drawing.Size(425, 314);
+            this.SettingsTb.TabIndex = 3;
+            this.SettingsTb.Text = "Settings";
+            // 
+            // HeaderGrpBx
+            // 
+            this.HeaderGrpBx.Controls.Add(this.HeadersStatusLbl);
+            this.HeaderGrpBx.Controls.Add(this.numericUpDown1);
+            this.HeaderGrpBx.Controls.Add(this.button1);
+            this.HeaderGrpBx.Controls.Add(this.LHeadersFrmFileBtn);
+            this.HeaderGrpBx.Controls.Add(this.button2);
+            this.HeaderGrpBx.Controls.Add(this.comboBox1);
+            this.HeaderGrpBx.Location = new System.Drawing.Point(9, 70);
+            this.HeaderGrpBx.Name = "HeaderGrpBx";
+            this.HeaderGrpBx.Size = new System.Drawing.Size(408, 91);
+            this.HeaderGrpBx.TabIndex = 13;
+            this.HeaderGrpBx.TabStop = false;
+            this.HeaderGrpBx.Text = "Headers";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(7, 20);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(111, 20);
+            this.numericUpDown1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(7, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Reset Headers";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(290, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(112, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Update Headers";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(127, 20);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(157, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // BlacklistingGrpBx
+            // 
+            this.BlacklistingGrpBx.Controls.Add(this.BlckListStatusLbl);
+            this.BlacklistingGrpBx.Controls.Add(this.ResetTxtBlkLst);
+            this.BlacklistingGrpBx.Controls.Add(this.AddTxtBlkBtn);
+            this.BlacklistingGrpBx.Controls.Add(this.RemoveBlkLstBtn);
+            this.BlacklistingGrpBx.Controls.Add(this.BlackListCmboBx);
+            this.BlacklistingGrpBx.Controls.Add(this.BlckListTxtBx);
+            this.BlacklistingGrpBx.Location = new System.Drawing.Point(9, 184);
+            this.BlacklistingGrpBx.Name = "BlacklistingGrpBx";
+            this.BlacklistingGrpBx.Size = new System.Drawing.Size(408, 95);
+            this.BlacklistingGrpBx.TabIndex = 13;
+            this.BlacklistingGrpBx.TabStop = false;
+            this.BlacklistingGrpBx.Text = "Blacklisting";
+            // 
+            // BlckListStatusLbl
+            // 
+            this.BlckListStatusLbl.AutoSize = true;
+            this.BlckListStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BlckListStatusLbl.Location = new System.Drawing.Point(6, 70);
+            this.BlckListStatusLbl.Name = "BlckListStatusLbl";
+            this.BlckListStatusLbl.Size = new System.Drawing.Size(152, 15);
+            this.BlckListStatusLbl.TabIndex = 3;
+            this.BlckListStatusLbl.Text = "Status: Awaiting User Input";
+            // 
+            // ResetTxtBlkLst
+            // 
+            this.ResetTxtBlkLst.Location = new System.Drawing.Point(265, 16);
+            this.ResetTxtBlkLst.Name = "ResetTxtBlkLst";
+            this.ResetTxtBlkLst.Size = new System.Drawing.Size(137, 23);
+            this.ResetTxtBlkLst.TabIndex = 2;
+            this.ResetTxtBlkLst.Text = "Reset";
+            this.ResetTxtBlkLst.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ResetTxtBlkLst.UseVisualStyleBackColor = true;
+            this.ResetTxtBlkLst.Click += new System.EventHandler(this.ResetTxtBlkLst_Click);
+            // 
+            // AddTxtBlkBtn
+            // 
+            this.AddTxtBlkBtn.Location = new System.Drawing.Point(134, 17);
+            this.AddTxtBlkBtn.Name = "AddTxtBlkBtn";
+            this.AddTxtBlkBtn.Size = new System.Drawing.Size(124, 23);
+            this.AddTxtBlkBtn.TabIndex = 2;
+            this.AddTxtBlkBtn.Text = "Add Blacklist Text";
+            this.AddTxtBlkBtn.UseVisualStyleBackColor = true;
+            this.AddTxtBlkBtn.Click += new System.EventHandler(this.AddTxtBlkBtn_Click);
+            // 
+            // RemoveBlkLstBtn
+            // 
+            this.RemoveBlkLstBtn.Location = new System.Drawing.Point(265, 48);
+            this.RemoveBlkLstBtn.Name = "RemoveBlkLstBtn";
+            this.RemoveBlkLstBtn.Size = new System.Drawing.Size(137, 23);
+            this.RemoveBlkLstBtn.TabIndex = 2;
+            this.RemoveBlkLstBtn.Text = "Remove Blacklist Text";
+            this.RemoveBlkLstBtn.UseVisualStyleBackColor = true;
+            this.RemoveBlkLstBtn.Click += new System.EventHandler(this.RemoveBlkLstBtn_Click);
+            // 
+            // BlackListCmboBx
+            // 
+            this.BlackListCmboBx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BlackListCmboBx.FormattingEnabled = true;
+            this.BlackListCmboBx.Location = new System.Drawing.Point(7, 46);
+            this.BlackListCmboBx.Name = "BlackListCmboBx";
+            this.BlackListCmboBx.Size = new System.Drawing.Size(251, 21);
+            this.BlackListCmboBx.TabIndex = 1;
+            this.BlackListCmboBx.SelectedIndexChanged += new System.EventHandler(this.BlackListCmboBx_SelectedIndexChanged);
+            // 
+            // BlckListTxtBx
+            // 
+            this.BlckListTxtBx.Location = new System.Drawing.Point(6, 19);
+            this.BlckListTxtBx.Name = "BlckListTxtBx";
+            this.BlckListTxtBx.Size = new System.Drawing.Size(122, 20);
+            this.BlckListTxtBx.TabIndex = 0;
+            // 
+            // SettingsGrpbx
+            // 
+            this.SettingsGrpbx.Controls.Add(this.AClearOnExit);
+            this.SettingsGrpbx.Controls.Add(this.AutoCopyCMChckbx);
+            this.SettingsGrpbx.Controls.Add(this.AutoLoadChckbx);
+            this.SettingsGrpbx.Controls.Add(this.checkBox1);
+            this.SettingsGrpbx.Location = new System.Drawing.Point(3, 8);
+            this.SettingsGrpbx.Name = "SettingsGrpbx";
+            this.SettingsGrpbx.Size = new System.Drawing.Size(419, 56);
+            this.SettingsGrpbx.TabIndex = 12;
+            this.SettingsGrpbx.TabStop = false;
+            this.SettingsGrpbx.Text = "Settings";
+            // 
+            // AClearOnExit
+            // 
+            this.AClearOnExit.AutoSize = true;
+            this.AClearOnExit.Location = new System.Drawing.Point(208, 29);
+            this.AClearOnExit.Name = "AClearOnExit";
+            this.AClearOnExit.Size = new System.Drawing.Size(183, 17);
+            this.AClearOnExit.TabIndex = 16;
+            this.AClearOnExit.Text = "Automatically Clear On Room Exit";
+            this.AClearOnExit.UseVisualStyleBackColor = true;
+            // 
+            // AutoCopyCMChckbx
+            // 
+            this.AutoCopyCMChckbx.AutoSize = true;
+            this.AutoCopyCMChckbx.Location = new System.Drawing.Point(6, 29);
+            this.AutoCopyCMChckbx.Name = "AutoCopyCMChckbx";
+            this.AutoCopyCMChckbx.Size = new System.Drawing.Size(185, 17);
+            this.AutoCopyCMChckbx.TabIndex = 17;
+            this.AutoCopyCMChckbx.Text = "Automatically Copy Clothes\\Motto";
+            this.AutoCopyCMChckbx.UseVisualStyleBackColor = true;
+            // 
+            // AutoLoadChckbx
+            // 
+            this.AutoLoadChckbx.AutoSize = true;
+            this.AutoLoadChckbx.Checked = true;
+            this.AutoLoadChckbx.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoLoadChckbx.Location = new System.Drawing.Point(6, 13);
+            this.AutoLoadChckbx.Name = "AutoLoadChckbx";
+            this.AutoLoadChckbx.Size = new System.Drawing.Size(170, 17);
+            this.AutoLoadChckbx.TabIndex = 15;
+            this.AutoLoadChckbx.Text = "Automatically Load Information";
+            this.AutoLoadChckbx.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(208, 13);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(205, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Mimic All Players (Not Recommended)";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // LHeadersFrmFileBtn
+            // 
+            this.LHeadersFrmFileBtn.Location = new System.Drawing.Point(127, 46);
+            this.LHeadersFrmFileBtn.Name = "LHeadersFrmFileBtn";
+            this.LHeadersFrmFileBtn.Size = new System.Drawing.Size(275, 23);
+            this.LHeadersFrmFileBtn.TabIndex = 2;
+            this.LHeadersFrmFileBtn.Text = "Load Headers From File";
+            this.LHeadersFrmFileBtn.UseVisualStyleBackColor = true;
+            this.LHeadersFrmFileBtn.Click += new System.EventHandler(this.LHeadersFrmFileBtn_Click);
+            // 
+            // HeadersStatusLbl
+            // 
+            this.HeadersStatusLbl.AutoSize = true;
+            this.HeadersStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeadersStatusLbl.Location = new System.Drawing.Point(6, 72);
+            this.HeadersStatusLbl.Name = "HeadersStatusLbl";
+            this.HeadersStatusLbl.Size = new System.Drawing.Size(152, 15);
+            this.HeadersStatusLbl.TabIndex = 3;
+            this.HeadersStatusLbl.Text = "Status: Awaiting User Input";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 360);
+            this.ClientSize = new System.Drawing.Size(433, 340);
             this.Controls.Add(this.MainTabCtrl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -470,17 +666,22 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ToolboxTab.ResumeLayout(false);
-            this.ToolboxTab.PerformLayout();
             this.ToolsOptionsGrpbx.ResumeLayout(false);
             this.ToolsOptionsGrpbx.PerformLayout();
-            this.SettingsGrpbx.ResumeLayout(false);
-            this.SettingsGrpbx.PerformLayout();
             this.PlayerInformationGrpbx.ResumeLayout(false);
             this.PlayerInformationGrpbx.PerformLayout();
             this.PlayerInformationPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerImg)).EndInit();
             this.SelectPlayerGrpbx.ResumeLayout(false);
+            this.SettingsTb.ResumeLayout(false);
+            this.HeaderGrpBx.ResumeLayout(false);
+            this.HeaderGrpBx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.BlacklistingGrpBx.ResumeLayout(false);
+            this.BlacklistingGrpBx.PerformLayout();
+            this.SettingsGrpbx.ResumeLayout(false);
+            this.SettingsGrpbx.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -500,9 +701,6 @@
         private System.Windows.Forms.CheckBox MWalkingChckbx;
         private System.Windows.Forms.CheckBox MStanceChckbx;
         private System.Windows.Forms.CheckBox MSpeechChckbx;
-        private System.Windows.Forms.CheckBox AutoCopyCMChckbx;
-        private System.Windows.Forms.GroupBox SettingsGrpbx;
-        private System.Windows.Forms.CheckBox AutoLoadChckbx;
         private System.Windows.Forms.GroupBox PlayerInformationGrpbx;
         private System.Windows.Forms.Panel PlayerInformationPnl;
         private System.Windows.Forms.DataGridView PDataGrid;
@@ -517,8 +715,28 @@
         private System.Windows.Forms.LinkLabel ArachisGitHubLnkLbl;
         private System.Windows.Forms.LinkLabel DarkBoxLnkLbl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox AClearOnExit;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TabPage SettingsTb;
+        private System.Windows.Forms.GroupBox SettingsGrpbx;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox BlacklistingGrpBx;
+        private System.Windows.Forms.Button AddTxtBlkBtn;
+        private System.Windows.Forms.Button RemoveBlkLstBtn;
+        private System.Windows.Forms.ComboBox BlackListCmboBx;
+        private System.Windows.Forms.TextBox BlckListTxtBx;
+        private System.Windows.Forms.GroupBox HeaderGrpBx;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button ResetTxtBlkLst;
+        private System.Windows.Forms.Label BlckListStatusLbl;
+        private System.Windows.Forms.CheckBox AClearOnExit;
+        private System.Windows.Forms.CheckBox AutoCopyCMChckbx;
+        private System.Windows.Forms.CheckBox AutoLoadChckbx;
+        private System.Windows.Forms.Button LHeadersFrmFileBtn;
+        private System.Windows.Forms.Label HeadersStatusLbl;
 
     }
 }

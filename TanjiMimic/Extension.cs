@@ -1,12 +1,16 @@
 ﻿using System.Windows.Forms;
 using Sulakore.Protocol;
 using Sulakore.Extensions;
+using TanjiMimic.Properties;
+using Sulakore.Utilities;
 
 namespace TanjiMimic
 {
     public class Extension : ExtensionBase
     {
         public Main MainUI { get; set; }
+        public static THeader TH = new THeader();
+        public static string HeadersFile = "Headers.xml";
 
         /// <summary>
         /// The name of the extension.
@@ -39,6 +43,15 @@ namespace TanjiMimic
         /// </summary>
         protected override void OnInitialized()
         {
+            TH.PlayerDataLoaded = 964;
+            TH.PlayerGesture = 896;
+            TH.PlayerDance = 3431;
+            TH.PlayerSay = 700;
+            TH.PlayerShout = 330;
+            TH.PlayerSign = 1149;
+            TH.PlayerSendMessage = 2083;
+            TH.SaveToFile(HeadersFile);
+
             if (MainUI != null) MainUI.BringToFront();
             else
             {
@@ -46,12 +59,9 @@ namespace TanjiMimic
                 MainUI.FormClosed += MainUI_FormClosed;
                 MainUI.Show();
 
-                AttachIn(2020, RaiseOnPlayerDataLoaded);
-                AttachIn(2134, RaiseOnPlayerGesture);
-                AttachIn(1963, RaiseOnPlayerDance);
-                AttachIn(000, RaiseOnHostChangeMotto);
-                AttachIn(3587, RaiseOnPlayerChangeStance);
-                AttachIn(2297, RaiseOnHostRoomExit);
+                AttachIn(2802, RaiseOnPlayerDataLoaded);
+                AttachIn(3565, RaiseOnPlayerGesture);
+                AttachIn(3770, RaiseOnPlayerDance);
             }
         }
 
