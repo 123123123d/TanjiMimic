@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml.Serialization;
 
-namespace Sulakore.Utilities
+namespace TanjiMimic.Utilities.Enums
 {
-    public  class THeader
+    public class THeader
     {
         #region Incoming Headers
         public ushort PlayerDataLoaded { get; set; }
@@ -20,7 +15,14 @@ namespace Sulakore.Utilities
         public ushort PlayerSendMessage { get; set; }
         #endregion
         #region Outgoing Headers
+        public ushort HostGesture { get; set; }
+        public ushort HostDance { get; set; }
+        public ushort HostSay { get; set; }
+        public ushort HostShout { get; set; }
+        public ushort HostSign { get; set; }
         public ushort HostSendMessage { get; set; }
+        public ushort HostChangeClothes { get; set; }
+        public ushort HostChangeMotto { get; set; }
         #endregion
 
         public void SaveToFile(string FileName)
@@ -35,8 +37,10 @@ namespace Sulakore.Utilities
         {
             using (var FS = new FileStream(FileName, FileMode.Open))
             {
+                var NewTH = new THeader();
                 var Xs = new XmlSerializer(typeof(THeader));
-                return (THeader)Xs.Deserialize(FS);
+                NewTH = (THeader)Xs.Deserialize(FS);
+                return NewTH;
             }
         }
     }

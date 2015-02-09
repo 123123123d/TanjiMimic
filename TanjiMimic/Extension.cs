@@ -1,8 +1,9 @@
-﻿using System.Windows.Forms;
+﻿using Sulakore.Extensions;
 using Sulakore.Protocol;
-using Sulakore.Extensions;
+using System.Globalization;
+using System.Windows.Forms;
 using TanjiMimic.Properties;
-using Sulakore.Utilities;
+using TanjiMimic.Utilities.Enums;
 
 namespace TanjiMimic
 {
@@ -10,7 +11,7 @@ namespace TanjiMimic
     {
         public Main MainUI { get; set; }
         public static THeader TH = new THeader();
-        public static string HeadersFile = "Headers.xml";
+        public static string HeadersFile = "TanjiMimic/Headers.xml";
 
         /// <summary>
         /// The name of the extension.
@@ -32,6 +33,7 @@ namespace TanjiMimic
         /// </summary>
         protected override void OnDisposed()
         {
+            // if(Directory.Exists("TanjiMimic")) Directory.Delete("TanjiMimic", true);
             if (MainUI != null)
             {
                 MainUI.Close();
@@ -43,25 +45,16 @@ namespace TanjiMimic
         /// </summary>
         protected override void OnInitialized()
         {
-            TH.PlayerDataLoaded = 964;
-            TH.PlayerGesture = 896;
-            TH.PlayerDance = 3431;
-            TH.PlayerSay = 700;
-            TH.PlayerShout = 330;
-            TH.PlayerSign = 1149;
-            TH.PlayerSendMessage = 2083;
-            TH.SaveToFile(HeadersFile);
-
+            
             if (MainUI != null) MainUI.BringToFront();
             else
             {
+                AttachIn(Data.Default.PlayerDataLoaded, RaiseOnPlayerDataLoaded);
+                AttachIn(Data.Default.PlayerGesture, RaiseOnPlayerGesture);
+                AttachIn(Data.Default.PlayerDance, RaiseOnPlayerDance);
                 MainUI = new Main(this);
                 MainUI.FormClosed += MainUI_FormClosed;
                 MainUI.Show();
-
-                AttachIn(2802, RaiseOnPlayerDataLoaded);
-                AttachIn(3565, RaiseOnPlayerGesture);
-                AttachIn(3770, RaiseOnPlayerDance);
             }
         }
 
@@ -70,7 +63,7 @@ namespace TanjiMimic
         /// </summary>
         /// <param name="packet">The incoming data represented by an HMessage instance.</param>
         protected override void DataToClient(HMessage packet)
-        { 
+        {
 
         }
         /// <summary>
@@ -82,9 +75,9 @@ namespace TanjiMimic
 
         private void MainUI_FormClosed(object sender, FormClosedEventArgs e)
         {
+            MainUI.Dispose();
             MainUI.FormClosed -= MainUI_FormClosed;
             MainUI = null;
-
             Contractor.Unload(this);
         }
     }

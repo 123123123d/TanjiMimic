@@ -7,7 +7,7 @@
     <ProjectGuid>{96950D30-2656-4B8D-BE85-C2A05BCFF4C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sulakore</RootNamespace>
+    <RootNamespace>TanjiMimic</RootNamespace>
     <AssemblyName>TanjiMimic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -29,8 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Sulakore, Version=1.0.5501.12783, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Sulakore, Version=1.0.5501.1409, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Downloads\Tanji v0.5 (B-5501)\Sulakore.dll</HintPath>
     </Reference>
@@ -45,16 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Data.cs" />
     <Compile Include="Properties\Data.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Data.settings</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Events\HostSendMessageEventArgs.cs" />
-    <Compile Include="Resources\Events\PlayerActionEventArgs.cs" />
-    <Compile Include="Resources\Events\PlayerSendMessageEventArgs.cs" />
-    <Compile Include="Resources\Events\PlayerSignEventArgs.cs" />
-    <Compile Include="Resources\Events\PlayerSpeakEventArgs.cs" />
+    <Compile Include="Utilities\Localization\Strings.cs" />
+    <Compile Include="Utilities\Enums\TLang.cs" />
+    <Compile Include="Utilities\Events\Outgoing\HostSendMessageEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerActionEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerSendMessageEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerSignEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerSpeakEventArgs.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -63,11 +70,15 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\THeader.cs" />
+    <Compile Include="Utilities\Enums\TSpeech.cs" />
+    <Compile Include="Utilities\Enums\THeader.cs" />
     <Compile Include="Utilities\TM.cs" />
-    <Compile Include="Utilities\TResponse.cs" />
+    <Compile Include="Utilities\Enums\TResponse.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Main.es.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,8 +92,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Icons\Tanji.ico" />
+    <Content Include="Utilities\Icons\Tanji.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

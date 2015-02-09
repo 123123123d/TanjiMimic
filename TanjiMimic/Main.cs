@@ -5,19 +5,23 @@ using Sulakore.Protocol;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tanji.Resources.Events;
 using TanjiMimic.Properties;
-using TanjiMimic.Resources.Events;
+using TanjiMimic.Resources.Events.Incoming;
+using TanjiMimic.Utilities.Localization;
 using TanjiMimic.Utilities;
+using TanjiMimic.Utilities.Enums;
+using System.Drawing;
 
 namespace TanjiMimic
 {
     public partial class Main : Form
     {
+
         public Extension Extension { get; private set; }
+
         #region variables
         private readonly object _playerLoadLock = new object();
         public IHPlayerData CurPlayer;
@@ -25,37 +29,87 @@ namespace TanjiMimic
         public HHotel CurHotel;
         public HDance CurDance;
         #endregion
+
         private readonly IDictionary<string, IHPlayerData> _loadedPlayers;
-        /// <summary>
-        /// Initializes an instance of this class passed with an Extension instance.
-        /// </summary>
-        /// <param name="extension">The Extension instance to be used for communication from/to the 'Contractor'.</param>
+
+        public TLang CurLang;
+
         public Main(Extension extension)
         {
             InitializeComponent();
+            
+            
 
             Extension = extension;
             _loadedPlayers = new Dictionary<string, IHPlayerData>();
-
             CurHotel = Extension.Contractor.Hotel;
-            Extension.AttachIn(178, OnPlayerSay);
-            Extension.AttachIn(2151, OnPlayerShout);
+            Extension.AttachIn(Data.Default.PlayerSay, OnPlayerSay);
+            Extension.AttachIn(Data.Default.PlayerShout, OnPlayerShout);
+            Extension.AttachIn(Data.Default.PlayerSign, OnPlayerSign);
+            Extension.AttachIn(Data.Default.PlayerSendMessage, OnPlayerSendMessage);
+            Extension.AttachIn(Data.Default.PlayerDataLoaded, OnPlayerDataLoaded);
 
-            Extension.AttachIn(2674, OnPlayerSign);
-            Extension.AttachIn(875, OnPlayerSendMessage);
-            Extension.PlayerDataLoaded += Extension_PlayerDataLoaded;
             Extension.PlayerGesture += Extension_PlayerGesture;
             Extension.PlayerDance += Extension_PlayerDance;
-            Extension.PlayerChangeData += Extension_PlayerChangeData;
-            Extension.HostRoomExit += Extension_HostRoomExit;
             Data.Default.BlackListTxt = new System.Collections.Specialized.StringCollection();
+            foreach (string t in Data.Default.BlackListTxt)
+            {
+                BlackListCmboBx.Items.Add(t);
+            }
+                Data.Default.BlackListTxt = new System.Collections.Specialized.StringCollection();
+
+                if (Data.Default.SavedLang == "Spanish")
+                {
+                    CurLang = TLang.Spanish;
+                    Thread.Sleep(500);
+                    ChangeLanguage();
+                }
+                else CurLang = TLang.English;
+
+        }
+
+        private void OnPlayerDataLoaded(HMessage obj)
+        {
+            var e = new PlayerDataLoadedEventArgs(obj);
+            lock (_playerLoadLock)
+            {
+                Invoke(new MethodInvoker(() =>
+                {
+                    if (AutoLoadChckbx.Checked)
+                    {
+                        var playerNames = new List<string>(e.LoadedPlayers.Count);
+                        foreach (IHPlayerData player in e.LoadedPlayers)
+                        {
+                            if (!_loadedPlayers.ContainsKey(player.PlayerName)) //If the player isnt ther
+                            {
+                                playerNames.Add(player.PlayerName);
+                                _loadedPlayers.Add(player.PlayerName, player);
+                                PlayerListCmbbx.Items.Add(player.PlayerName); //add the players 1 by 1 to the list
+                                PlayerListCmbbx.SelectedIndex = PlayerListCmbbx.FindStringExact(player.PlayerName);
+                            }
+                            playerNames.TrimExcess();
+                            //You used to just add the whole list without checking here
+
+                            if (PlayerListCmbbx.Items.Count == playerNames.Count)
+                                PlayerListCmbbx.SelectedText = player.PlayerName;
+
+                            string TitleFormat = Strings.TitleFormat(CurLang);
+                            SelectPlayerGrpbx.Text = string.Format(TitleFormat, _loadedPlayers.Count);
+
+                            if (!PlayerListCmbbx.Enabled)
+                                PlayerListCmbbx.Enabled = true;
+                        }
+                    }
+                }));
+            }
         }
 
         private void OnPlayerSendMessage(HMessage obj)
         {
             //TODO: Add a checkbox to see if the guy actually wants to mimic message
             var args = new PlayerSendMessageEventArgs(obj);
-            Extension.Contractor.SendToServer(HMessage.Construct(3664, args.PlayerID, args.Message));
+            if (MPmChckBx.Checked)
+                Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostSendMessage, args.PlayerID, args.Message));
         }
 
         private void OnPlayerSign(HMessage obj)
@@ -66,20 +120,12 @@ namespace TanjiMimic
                 {
                     var args = new PlayerSignEventArgs(obj);
                     if (args.PlayerIndex == CurPlayer.PlayerIndex && MSignChckbx.Checked)
-                        Extension.Contractor.SendToServer(HMessage.Construct(3058, (int)args.Sign));
+                        Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostSign, (int)args.Sign));
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-            }
-        }
-
-        private void Extension_HostRoomExit(object sender, HostRoomExitEventArgs e)
-        {
-            if (AClearOnExit.Checked)
-            {
-                Reset();
             }
         }
 
@@ -102,28 +148,19 @@ namespace TanjiMimic
             if (args.PlayerIndex == CurPlayer.PlayerIndex)
             {
                 if (!isBlackListed(args.Message))
-                    Extension.Contractor.SendToServer(HMessage.Construct(2423, args.Message, args.Theme.Juice()));
+                    Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostShout, args.Message, args.Theme.Juice()));
             }
         }
 
         private void OnPlayerSay(HMessage obj)
         {
             var List = Data.Default.BlackListTxt;
-            var args = new PlayerSpeakEventArgs(obj, HSpeech.Shout);
+            var args = new PlayerSpeakEventArgs(obj, HSpeech.Say);
             if (!MSpeechChckbx.Checked) return;
             if (args.PlayerIndex == CurPlayer.PlayerIndex)
             {
                 if (!isBlackListed(args.Message))
-                    Extension.Contractor.SendToServer(HMessage.Construct(1593, args.Message, args.Theme.Juice(), 0));
-            }
-        }
-
-        private void Extension_PlayerChangeData(object sender, PlayerChangeDataEventArgs e)
-        {
-            if (e.PlayerIndex == CurPlayer.PlayerIndex)
-            {
-
-
+                    Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostSay, args.Message, args.Theme.Juice(), 0));
             }
         }
 
@@ -133,7 +170,7 @@ namespace TanjiMimic
             {
                 if (MDancingChckbx.Checked)
                 {
-                    Extension.Contractor.SendToServer(HMessage.Construct(749, (int)e.Dance));
+                    Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostDance, (int)e.Dance));
                 }
             }
         }
@@ -144,7 +181,7 @@ namespace TanjiMimic
             {
                 if (MGesturesChckbx.Checked)
                 {
-                    Extension.Contractor.SendToServer(HMessage.Construct(3177, (int)e.Gesture));
+                    Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostGesture, (int)e.Gesture));
                 }
             }
         }
@@ -172,9 +209,8 @@ namespace TanjiMimic
                             if (PlayerListCmbbx.Items.Count == playerNames.Count)
                                 PlayerListCmbbx.SelectedText = player.PlayerName;
 
-                            const string TitleFormat = "Select Player - Total: {0}";
+                            string TitleFormat = Strings.TitleFormat(CurLang);
                             SelectPlayerGrpbx.Text = string.Format(TitleFormat, _loadedPlayers.Count);
-
 
                             if (!PlayerListCmbbx.Enabled)
                                 PlayerListCmbbx.Enabled = true;
@@ -190,14 +226,14 @@ namespace TanjiMimic
                 .ContinueWith(x => PlayerImg.Image = x.Result, TaskScheduler.FromCurrentSynchronizationContext());
             PDataGrid.Rows.Clear();
 
-            PDataGrid.Rows.Add("Name", CurPlayer.PlayerName);
-            PDataGrid.Rows.Add("ID", CurPlayer.PlayerId);
-            PDataGrid.Rows.Add("Tile", CurPlayer.Tile);
-            PDataGrid.Rows.Add("Figure", CurPlayer.FigureId);
-            PDataGrid.Rows.Add("Motto", CurPlayer.Motto);
-            PDataGrid.Rows.Add("Gender", CurPlayer.Gender);
-            PDataGrid.Rows.Add("Group", CurPlayer.GroupName);
-            PDataGrid.Rows.Add("Index", CurPlayer.PlayerIndex);
+            PDataGrid.Rows.Add(Strings.Name(CurLang), CurPlayer.PlayerName);
+            PDataGrid.Rows.Add(Strings.ID(CurLang), CurPlayer.PlayerId);
+            PDataGrid.Rows.Add(Strings.Tile(CurLang), CurPlayer.Tile);
+            PDataGrid.Rows.Add(Strings.Figure(CurLang), CurPlayer.FigureId);
+            PDataGrid.Rows.Add(Strings.Motto(CurLang), CurPlayer.Motto);
+            PDataGrid.Rows.Add(Strings.Gender(CurLang), CurPlayer.Gender);
+            PDataGrid.Rows.Add(Strings.Group(CurLang), CurPlayer.GroupName);
+            PDataGrid.Rows.Add(Strings.Index(CurLang), CurPlayer.PlayerIndex);
         }
 
         public void Reset()
@@ -220,9 +256,9 @@ namespace TanjiMimic
             if (MClothesChckbx.Checked)
             {
                 if (player.Gender == HGender.Male)
-                    Extension.Contractor.SendToServer(HMessage.Construct(235, HGender.Male.ToString()[0], player.FigureId));
+                    Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostChangeClothes, HGender.Male.ToString()[0], player.FigureId));
                 else
-                    Extension.Contractor.SendToServer(HMessage.Construct(235, HGender.Female.ToString()[0], player.FigureId));
+                    Extension.Contractor.SendToServer(HMessage.Construct(Data.Default.HostChangeClothes, HGender.Female.ToString()[0], player.FigureId));
             }
         }
 
@@ -233,7 +269,7 @@ namespace TanjiMimic
 
         private void TMLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://GitHub.com/JustDevInc/Sulakore");
+            Process.Start("https://GitHub.com/JustDevInc/TanjiMimic");
         }
 
         private void ArachisGithubLnkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -290,9 +326,84 @@ namespace TanjiMimic
             FD.Title = "Select a file to load Headers From";
             if (FD.ShowDialog() == DialogResult.OK)
             {
-                Extension.TH.LoadFromFile(FD.FileName); 
-            }         
+                THeader TH = TM.LoadFromFile(FD.FileName);
+                TM.UpdateHeadersFromFile(TH);
+            }
         }
 
+        private void SHeadersToFile_Click(object sender, EventArgs e)
+        {
+            TM.SetDirectory();
+            Extension.TH.SaveToFile("TanjiMimic/Headers.xml");
+        }
+
+        private void SLangBtn_Click(object sender, EventArgs e)
+        {
+            if (SLangCmbBx.SelectedIndex == 0)
+            {
+                CurLang = TLang.English;
+                TM.SetLang(TLang.English);
+                ChangeLanguage();
+            }
+            else if (SLangCmbBx.SelectedIndex == 1)
+            {
+                CurLang = TLang.Spanish;
+                TM.SetLang(TLang.Spanish);
+                ChangeLanguage();
+            }
+        }
+
+        private void ChangeLanguage()
+        {
+            try
+            {
+                this.Text = Strings.FormTitle(CurLang);
+                this.InfoGrpBx.Text = Strings.InformationGrpBx(CurLang);
+                this.PlayerInformationGrpbx.Text = Strings.InformationGrpBx(CurLang);
+                this.ToolsOptionsGrpbx.Text = Strings.ToolBoxOptionsGrpBx(CurLang);
+                this.ToolboxTab.Text = Strings.ToolBoxTab(CurLang);
+                this.SettingsTb.Text = Strings.SettingsTab(CurLang);
+                this.HomeTab.Text = Strings.MainTab(CurLang);
+                this.InfoLbl.Text = Strings.InfoLbl(CurLang);
+                this.SelectPlayerGrpbx.Text = string.Format(Strings.TitleFormat(CurLang), _loadedPlayers.Count);
+                this.AutoCopyCMChckbx.Text = Strings.AutomaticallyCopyClothesMotto(CurLang);
+                this.AutoLoadChckbx.Text = Strings.AutomaticallyLoadInformation(CurLang);
+
+                this.MPmChckBx.Text = Strings.MimicMessage(CurLang);
+                this.MSpeechChckbx.Text = Strings.MimicSpeech(CurLang);
+                this.MMottoChckbx.Text = Strings.MimicMotto(CurLang);
+                this.MClothesChckbx.Text = Strings.MimicClothes(CurLang);
+                this.MSignChckbx.Text = Strings.MimicSign(CurLang);
+                this.MStanceChckbx.Text = Strings.MimicStance(CurLang);
+                this.MDancingChckbx.Text = Strings.MimicDance(CurLang);
+                this.MGesturesChckbx.Text = Strings.MimicGesture(CurLang);
+                this.DataType.HeaderText = Strings.Category(CurLang);
+                this.DataValue.HeaderText = Strings.Value(CurLang);
+
+                switch (CurLang)
+                {
+                    case TLang.English:
+                        this.TMLink.Location = new Point(103, 68);
+                        this.DarkBoxLnkLbl.Location = new Point(26, 142);
+                        this.ArachisGitHubLnkLbl.Location = new Point(175, 142);
+                        break;
+                    case TLang.Spanish:
+                        this.TMLink.Location = new Point(124, 82);
+                        this.DarkBoxLnkLbl.Location = new Point(26, 165);
+                        this.ArachisGitHubLnkLbl.Location = new Point(175, 165);
+                        break;
+                    case TLang.None:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.ToString());
+            }
+            
+        }
     }
 }

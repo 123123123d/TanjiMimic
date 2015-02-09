@@ -2,10 +2,12 @@
 
 using Sulakore.Habbo;
 using Sulakore.Protocol;
+using Sulakore.Communication;
+using Sulakore;
 
-namespace Sulakore.Communication
+namespace TanjiMimic.Resources.Events.Incoming
 {
-    public class PlayerActionEventArgs : EventArgs, IHabboEvent
+    public class PlayerSignEventArgs : EventArgs, IHabboEvent
     {
         private readonly HMessage _packet;
 
@@ -15,8 +17,9 @@ namespace Sulakore.Communication
         public HPoint Tile { get; private set; }
         public HDirection HeadDirection { get; private set; }
         public HDirection BodyDirection { get; private set; }
+        public HSign Sign { get; private set; }
 
-        public PlayerActionEventArgs(HMessage packet)
+        public PlayerSignEventArgs(HMessage packet)
         {
             _packet = packet;
             Header = _packet.Header;
@@ -24,22 +27,24 @@ namespace Sulakore.Communication
             string z, actionTxt;
 
             int position = 0;
-            PlayerCount = _packet.ReadInt(ref position);
+            PlayerCount = _packet.ReadInt(ref position);  
             PlayerIndex = _packet.ReadInt(ref position);
             x = _packet.ReadInt(ref position);
             y = _packet.ReadInt(ref position);
             z = _packet.ReadString(ref position);
-            Tile = new HPoint(x, y, z);
-            HeadDirection = (HDirection)_packet.ReadInt(ref position);
+            HeadDirection = (HDirection) _packet.ReadInt(ref position);
             BodyDirection = (HDirection)_packet.ReadInt(ref position);
             actionTxt = _packet.ReadString(ref position);
-            actionTxt = actionTxt.GetChild("//mv ", '/');
+            actionTxt = actionTxt.GetChild("//sign ", '/');
+            Sign = (HSign)int.Parse(actionTxt);
 
+
+            Tile = new HPoint(x, y, z);
         }
         public override string ToString()
         {
-            return string.Format("Header: {0}, PlayerCount: {1}, PlayerIndex : {2}, HeaderDirection : {3}, BodyDirection: {4}, Tile : {5}",
-                Header, PlayerCount, PlayerIndex, HeadDirection, BodyDirection, Tile.ToString());
+            return string.Format("Header: {0}, PlayerCount: {1}, PlayerIndex : {2}, HeaderDirection : {3}, BodyDirection: {4}, Sign : {5}",
+                Header, PlayerCount, PlayerIndex, HeadDirection, BodyDirection, Sign);
         }
 
     }

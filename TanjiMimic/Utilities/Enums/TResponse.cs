@@ -1,4 +1,4 @@
-﻿namespace TanjiMimic
+﻿namespace TanjiMimic.Utilities.Enums
 {
     /// <summary>
     /// Returns a TanjiMimic Response

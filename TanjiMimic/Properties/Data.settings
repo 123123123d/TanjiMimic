@@ -1,9 +1,57 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TanjiMimic" GeneratedClassName="Data">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TanjiMimic.Properties" GeneratedClassName="Data">
   <Profiles />
   <Settings>
     <Setting Name="BlackListTxt" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PlayerDataLoaded" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">961</Value>
+    </Setting>
+    <Setting Name="PlayerGesture" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">2482</Value>
+    </Setting>
+    <Setting Name="PlayerDance" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">3848</Value>
+    </Setting>
+    <Setting Name="PlayerSay" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">2735</Value>
+    </Setting>
+    <Setting Name="PlayerShout" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">3274</Value>
+    </Setting>
+    <Setting Name="PlayerSign" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">2566</Value>
+    </Setting>
+    <Setting Name="PlayerSendMessage" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">625</Value>
+    </Setting>
+    <Setting Name="HostGesture" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="HostDance" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">1764</Value>
+    </Setting>
+    <Setting Name="HostSay" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">2462</Value>
+    </Setting>
+    <Setting Name="HostShout" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">1559</Value>
+    </Setting>
+    <Setting Name="HostSign" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">1037</Value>
+    </Setting>
+    <Setting Name="HostSendMessage" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">2046</Value>
+    </Setting>
+    <Setting Name="HostChangeClothes" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">2889</Value>
+    </Setting>
+    <Setting Name="HostChangeMotto" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">3060</Value>
+    </Setting>
+    <Setting Name="SavedLang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">English</Value>
     </Setting>
   </Settings>
 </SettingsFile>

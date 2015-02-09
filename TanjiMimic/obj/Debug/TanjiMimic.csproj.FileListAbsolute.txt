@@ -1,10 +1,13 @@
+C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\TanjiMimic.dll.config
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\TanjiMimic.dll
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\TanjiMimic.pdb
+C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\es\TanjiMimic.resources.dll
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\Sulakore.dll
+C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\Sulakore.xml
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\obj\Debug\TanjiMimic.csprojResolveAssemblyReference.cache
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\obj\Debug\TanjiMimic.Main.resources
+C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\obj\Debug\TanjiMimic.Main.es.resources
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\obj\Debug\TanjiMimic.csproj.GenerateResource.Cache
+C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\obj\Debug\es\TanjiMimic.resources.dll
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\obj\Debug\TanjiMimic.dll
 C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\obj\Debug\TanjiMimic.pdb
-C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\Sulakore.xml
-C:\Users\Uzi\Documents\Github\TanjiMimic\TanjiMimic\bin\Debug\TanjiMimic.dll.config

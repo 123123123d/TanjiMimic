@@ -1,12 +1,9 @@
-﻿using TanjiMimic.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 using TanjiMimic.Properties;
 using System.IO;
+using System.Xml.Serialization;
+using TanjiMimic.Utilities.Enums;
 
 namespace TanjiMimic.Utilities
 {
@@ -39,7 +36,14 @@ namespace TanjiMimic.Utilities
         {
                 Data.Default.BlackListTxt.Remove(Message);
                 Bx.Items.Remove(Message);
-                Bx.SelectedIndex = 0;
+                try
+                {
+                    Bx.SelectedIndex = 0;
+                }
+                catch (Exception)
+                {
+                    
+                }
         }
         public static void AddStatus(this Label Lbl, string Message)
         {
@@ -55,16 +59,59 @@ namespace TanjiMimic.Utilities
                 Bx.SelectedItem = item;
             }
         }
-        public static void SaveHeadersToFile(this StreamWriter File)
+        public static THeader LoadFromFile(string FileName)
         {
-            using (FileStream FS = new FileStream("", FileMode.Append, FileAccess.Write))
-            using (StreamWriter SW = new StreamWriter(FS))
+            using (var FS = new FileStream(FileName, FileMode.Open))
             {
-                foreach (string Header in Data.Default.BlackListTxt)
-                {
-                    SW.WriteLine(Header);
-                }
+                var Xs = new XmlSerializer(typeof(THeader));
+                return (THeader)Xs.Deserialize(FS);
             }
+        }
+        public static void UpdateHeadersFromFile(THeader TH)
+        {
+            var D = Data.Default;
+            #region Incoming Headers
+            D.PlayerDataLoaded = TH.PlayerDataLoaded;
+            D.PlayerGesture = TH.PlayerGesture;
+            D.PlayerDance = TH.PlayerDance;
+            D.PlayerSay = TH.PlayerSay;
+            D.PlayerShout = TH.PlayerShout;
+            D.PlayerSign = TH.PlayerSign;
+            D.PlayerSendMessage = TH.PlayerSendMessage;
+            #endregion
+            #region Outcoming Headers
+            D.HostGesture = TH.HostGesture;
+            D.HostDance = TH.HostDance;
+            D.HostSay = TH.HostSay;
+            D.HostShout = TH.HostShout;
+            D.HostSign = TH.HostSign;
+            D.HostSendMessage = TH.HostSendMessage;
+            D.HostChangeClothes = TH.HostChangeClothes;
+            #endregion
+            UpdateData();
+            Extension.TH = TH;
+        }
+        public static void SetDirectory()
+        {
+            //if (!Directory.Exists("TanjiMimic")) Directory.CreateDirectory("TanjiMimic");
+        }
+        public static void SetLang(TLang Lang)
+        {
+            switch (Lang)
+            {
+                case TLang.English:
+                    Data.Default.SavedLang = "English";
+                    break;
+                case TLang.Spanish:
+                    Data.Default.SavedLang = "Spanish";
+                    break;
+                case TLang.None:
+                    break;
+                default:
+                    break;
+            }
+            Data.Default.SavedLang = Lang.ToString();
+            UpdateData();
         }
     }
 }
