@@ -34,9 +34,9 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Sulakore, Version=1.0.5501.1409, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Sulakore, Version=1.0.5522.33331, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\Tanji v0.5 (B-5501)\Sulakore.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\Tanji v0.6 [B-5522]\Tanji v0.6 [B-5522]\Sulakore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,19 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\Data.cs" />
-    <Compile Include="Properties\Data.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Data.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Utilities\Localization\Strings.cs" />
-    <Compile Include="Utilities\Enums\TLang.cs" />
-    <Compile Include="Utilities\Events\Outgoing\HostSendMessageEventArgs.cs" />
-    <Compile Include="Utilities\Events\Incoming\PlayerActionEventArgs.cs" />
-    <Compile Include="Utilities\Events\Incoming\PlayerSendMessageEventArgs.cs" />
-    <Compile Include="Utilities\Events\Incoming\PlayerSignEventArgs.cs" />
-    <Compile Include="Utilities\Events\Incoming\PlayerSpeakEventArgs.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -69,32 +56,48 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Data.cs" />
+    <Compile Include="Properties\Data.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Data.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Controls\TButton.cs" />
+    <Compile Include="Utilities\Controls\TTabControl.cs" />
+    <Compile Include="Utilities\Controls\Draw.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerWhisperEventArgs.cs" />
+    <Compile Include="Utilities\Localization\LangManager.cs" />
+    <Compile Include="Utilities\Localization\Strings.cs" />
+    <Compile Include="Utilities\Enums\TLang.cs" />
+    <Compile Include="Utilities\Events\Outgoing\HostSendMessageEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerActionEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerSendMessageEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerSignEventArgs.cs" />
+    <Compile Include="Utilities\Events\Incoming\PlayerSpeakEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Enums\TSpeech.cs" />
     <Compile Include="Utilities\Enums\THeader.cs" />
+    <Compile Include="Utilities\Localization\UIControls.cs" />
     <Compile Include="Utilities\TM.cs" />
     <Compile Include="Utilities\Enums\TResponse.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Main.es.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Properties\app.config" />
+    <None Include="Properties\app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Data.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Data.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Utilities\Icons\Tanji.ico" />
+    <Content Include="Utilities\Images\Tanji.ico" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

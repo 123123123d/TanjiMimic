@@ -225,5 +225,29 @@ namespace TanjiMimic.Properties {
                 this["SavedLang"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ushort HostWhisper {
+            get {
+                return ((ushort)(this["HostWhisper"]));
+            }
+            set {
+                this["HostWhisper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ushort PlayerWhisper {
+            get {
+                return ((ushort)(this["PlayerWhisper"]));
+            }
+            set {
+                this["PlayerWhisper"] = value;
+            }
+        }
     }
 }

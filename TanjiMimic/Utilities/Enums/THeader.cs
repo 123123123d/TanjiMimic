@@ -11,6 +11,7 @@ namespace TanjiMimic.Utilities.Enums
         public ushort PlayerDance { get; set; }
         public ushort PlayerSay { get; set; }
         public ushort PlayerShout { get; set; }
+        public ushort PlayerWhisper { get; set; }
         public ushort PlayerSign { get; set; }
         public ushort PlayerSendMessage { get; set; }
         #endregion
@@ -19,6 +20,7 @@ namespace TanjiMimic.Utilities.Enums
         public ushort HostDance { get; set; }
         public ushort HostSay { get; set; }
         public ushort HostShout { get; set; }
+        public ushort HostWhisper { get; set; }
         public ushort HostSign { get; set; }
         public ushort HostSendMessage { get; set; }
         public ushort HostChangeClothes { get; set; }
