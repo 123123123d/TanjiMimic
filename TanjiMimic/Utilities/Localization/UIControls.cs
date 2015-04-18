@@ -7,62 +7,49 @@ namespace TanjiMimic.Utilities.Localization
 {
     public class UIControls
     {
-        
         public string Author { get; set; }
         public string LanguageName { get; set; }
 
         public string FormTile { get; set; }
-        #region Main Tab
-        public string MainTb { get; set; }
-        public string ToolBoxTb { get; set; }
-        public string SettingsTb { get; set; }
-        public string TMHeaderLbl { get; set; }
-        public string InfoLbl { get; set; }
-        public string VersionLbl { get; set; }
+        #region TabControls
+        public string HeadersTab { get; set; }
+        public string HelpTab { get; set; }
+        public string OptionsTab { get; set; }
+        public string LanguageTab { get; set; }
         #endregion
-        #region ToolBox Tab
-        public string SelectPlayerGrpBx { get; set; }
-        public string TSettingsGrpBx { get; set; }
-        public string PlayerInfoGrpBx { get; set; }
-        public string ToolsOptionsGrpBx { get; set; }
-        public string AutoLoadIngoChckBx { get; set; }
 
-        public string AutoCopyClothesMottoCckBx { get; set; }
-        public string MimicMessageChckBx { get; set; }
-        public string MimicSpeechChckBx { get; set; }
-        public string MimicMottoChckBx { get; set; }
-        public string MimicClothesChckBx { get; set; }
-        public string MimicSignChckBx { get; set; }
-        public string MimicStanceChckBx { get; set; }
-        public string MimicDancingChckBx { get; set; }
-        public string MimicGesturesChckBx { get; set; }
-
-        public string ClearBtn { get; set; }
-
-        public string TypeDataColumn { get; set; }
-        public string ValueDataColumn { get; set; }
-
-        #endregion
-        #region Settings Tab
-        public string SSettingsGrpBx{ get; set; }
-        public string HeadersGrpBx { get; set; }
-        public string BlacklistingGrpBx { get; set; }
-        public string LanguageGrpBx { get; set; }
-
-        public string AClrOnRoomExtChckBx { get; set; }
-        public string MimicAllPlayersChckBx { get; set; }
-
+        #region Buttons
+        public string SetHeadersBtn { get; set; }
         public string ResetHeadersBtn { get; set; }
-        public string LoadHeadersBtn { get; set; }
-        public string ExportHeadersBtn { get; set; }
-        public string AddBlckListBtn { get; set; }
-        public string ResetBlckListBtn { get; set; }
-        public string RemoveBlckListBtn { get; set; }
-        public string SetLanguage { get; set; }
+        public string LoadHeadersFromFileBtn { get; set; }
+        public string ExportHeadersToFileBtn { get; set; }
+        public string ClearPlayersBtn { get; set; }
+        public string MimicBtn { get; set; }
+        public string SetLangBtn { get; set; }
+        public string LoadLangFrmFileBtn { get; set; }
+        public string AddBlckLstBtn { get; set; }
+        public string RemoveBlckLstBtn { get; set; }
+        public string ResetBlckLstBtn { get; set; }
+        #endregion
 
-        public string HeadersStat { get; set; }
-        public string BlckListStat { get; set; }
+        #region Labels
+        public string TMInfoLbl { get; set; }
+        public string PlayersLblFrmt { get; set; }
+        public string MimicOtherPlayerLbl { get; set; }
+        public string BlckLstingLbl { get; set; }
+        public string ProgrammingLbl { get; set; }
+        public string DesignerLbl { get; set; }
+        #endregion
 
+        #region CheckBoxes
+        public string Message { get; set; }
+        public string Sign { get; set; }
+        public string Motto { get; set; }
+        public string Clothes { get; set; }
+        public string Speech { get; set; }
+        public string Gestures { get; set; }
+        public string Stance { get; set; }
+        public string Dance { get; set; }
         #endregion
 
         public void SaveToFile(string FileName)
@@ -73,6 +60,7 @@ namespace TanjiMimic.Utilities.Localization
                 Xs.Serialize(FS, this);
             }
         }
+
         public UIControls LoadFromFile(string FileName)
         {
             using (var FS = new FileStream(FileName, FileMode.Open))

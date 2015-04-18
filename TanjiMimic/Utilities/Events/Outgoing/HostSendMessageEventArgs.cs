@@ -4,7 +4,7 @@ using Sulakore.Habbo;
 using Sulakore.Protocol;
 using Sulakore.Communication;
 
-namespace TanjiMimic.Resources.Events.Outgoing
+namespace TanjiMimic.Utilities.Events.Outgoing
 {
     public class HostSendMessageEventArgs : EventArgs, IHabboEvent
     {

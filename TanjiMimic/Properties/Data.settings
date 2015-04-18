@@ -6,57 +6,63 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PlayerDataLoaded" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">961</Value>
+      <Value Profile="(Default)">85</Value>
     </Setting>
     <Setting Name="PlayerGesture" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">2482</Value>
+      <Value Profile="(Default)">1988</Value>
     </Setting>
     <Setting Name="PlayerDance" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">3848</Value>
+      <Value Profile="(Default)">1270</Value>
     </Setting>
     <Setting Name="PlayerSay" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">2735</Value>
+      <Value Profile="(Default)">1836</Value>
     </Setting>
     <Setting Name="PlayerShout" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">3274</Value>
+      <Value Profile="(Default)">3449</Value>
     </Setting>
     <Setting Name="PlayerSign" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">2566</Value>
+      <Value Profile="(Default)">279</Value>
     </Setting>
     <Setting Name="PlayerSendMessage" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">625</Value>
+      <Value Profile="(Default)">2421</Value>
+    </Setting>
+    <Setting Name="PlayerWhisper" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PlayerChangeData" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">1583</Value>
+    </Setting>
+    <Setting Name="PlayerActionsDetected" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="HostGesture" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">2000</Value>
+      <Value Profile="(Default)">1114</Value>
     </Setting>
     <Setting Name="HostDance" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">1764</Value>
+      <Value Profile="(Default)">1413</Value>
     </Setting>
     <Setting Name="HostSay" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">2462</Value>
+      <Value Profile="(Default)">3331</Value>
     </Setting>
     <Setting Name="HostShout" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">1559</Value>
+      <Value Profile="(Default)">3221</Value>
     </Setting>
     <Setting Name="HostSign" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">1037</Value>
+      <Value Profile="(Default)">215</Value>
     </Setting>
     <Setting Name="HostSendMessage" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">2046</Value>
+      <Value Profile="(Default)">2085</Value>
     </Setting>
     <Setting Name="HostChangeClothes" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">2889</Value>
+      <Value Profile="(Default)">2274</Value>
     </Setting>
     <Setting Name="HostChangeMotto" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">3060</Value>
-    </Setting>
-    <Setting Name="SavedLang" Type="System.String" Scope="User">
-      <Value Profile="(Default)">English</Value>
+      <Value Profile="(Default)">1350</Value>
     </Setting>
     <Setting Name="HostWhisper" Type="System.UInt16" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="PlayerWhisper" Type="System.UInt16" Scope="User">
+    <Setting Name="Setting" Type="System.UInt16" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

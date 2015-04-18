@@ -7,6 +7,8 @@ namespace TanjiMimic.Utilities.Enums
     {
         #region Incoming Headers
         public ushort PlayerDataLoaded { get; set; }
+        public ushort PlayerChangeData { get; set; }
+        public ushort PlayerActionsDetected { get; set; }
         public ushort PlayerGesture { get; set; }
         public ushort PlayerDance { get; set; }
         public ushort PlayerSay { get; set; }
@@ -33,16 +35,6 @@ namespace TanjiMimic.Utilities.Enums
             {
                 var Xs = new XmlSerializer(typeof(THeader));
                 Xs.Serialize(FS, this);
-            }
-        }
-        public THeader LoadFromFile(string FileName)
-        {
-            using (var FS = new FileStream(FileName, FileMode.Open))
-            {
-                var NewTH = new THeader();
-                var Xs = new XmlSerializer(typeof(THeader));
-                NewTH = (THeader)Xs.Deserialize(FS);
-                return NewTH;
             }
         }
     }

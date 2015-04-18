@@ -36,7 +36,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("961")]
+        [global::System.Configuration.DefaultSettingValueAttribute("85")]
         public ushort PlayerDataLoaded {
             get {
                 return ((ushort)(this["PlayerDataLoaded"]));
@@ -48,7 +48,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2482")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1988")]
         public ushort PlayerGesture {
             get {
                 return ((ushort)(this["PlayerGesture"]));
@@ -60,7 +60,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3848")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1270")]
         public ushort PlayerDance {
             get {
                 return ((ushort)(this["PlayerDance"]));
@@ -72,7 +72,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2735")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1836")]
         public ushort PlayerSay {
             get {
                 return ((ushort)(this["PlayerSay"]));
@@ -84,7 +84,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3274")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3449")]
         public ushort PlayerShout {
             get {
                 return ((ushort)(this["PlayerShout"]));
@@ -96,7 +96,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2566")]
+        [global::System.Configuration.DefaultSettingValueAttribute("279")]
         public ushort PlayerSign {
             get {
                 return ((ushort)(this["PlayerSign"]));
@@ -108,7 +108,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("625")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2421")]
         public ushort PlayerSendMessage {
             get {
                 return ((ushort)(this["PlayerSendMessage"]));
@@ -120,7 +120,43 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ushort PlayerWhisper {
+            get {
+                return ((ushort)(this["PlayerWhisper"]));
+            }
+            set {
+                this["PlayerWhisper"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1583")]
+        public ushort PlayerChangeData {
+            get {
+                return ((ushort)(this["PlayerChangeData"]));
+            }
+            set {
+                this["PlayerChangeData"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ushort PlayerActionsDetected {
+            get {
+                return ((ushort)(this["PlayerActionsDetected"]));
+            }
+            set {
+                this["PlayerActionsDetected"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1114")]
         public ushort HostGesture {
             get {
                 return ((ushort)(this["HostGesture"]));
@@ -132,7 +168,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1764")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1413")]
         public ushort HostDance {
             get {
                 return ((ushort)(this["HostDance"]));
@@ -144,7 +180,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2462")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3331")]
         public ushort HostSay {
             get {
                 return ((ushort)(this["HostSay"]));
@@ -156,7 +192,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1559")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3221")]
         public ushort HostShout {
             get {
                 return ((ushort)(this["HostShout"]));
@@ -168,7 +204,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1037")]
+        [global::System.Configuration.DefaultSettingValueAttribute("215")]
         public ushort HostSign {
             get {
                 return ((ushort)(this["HostSign"]));
@@ -180,7 +216,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2046")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2085")]
         public ushort HostSendMessage {
             get {
                 return ((ushort)(this["HostSendMessage"]));
@@ -192,7 +228,7 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2889")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2274")]
         public ushort HostChangeClothes {
             get {
                 return ((ushort)(this["HostChangeClothes"]));
@@ -204,25 +240,13 @@ namespace TanjiMimic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3060")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1350")]
         public ushort HostChangeMotto {
             get {
                 return ((ushort)(this["HostChangeMotto"]));
             }
             set {
                 this["HostChangeMotto"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("English")]
-        public string SavedLang {
-            get {
-                return ((string)(this["SavedLang"]));
-            }
-            set {
-                this["SavedLang"] = value;
             }
         }
         
@@ -241,12 +265,12 @@ namespace TanjiMimic.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public ushort PlayerWhisper {
+        public ushort Setting {
             get {
-                return ((ushort)(this["PlayerWhisper"]));
+                return ((ushort)(this["Setting"]));
             }
             set {
-                this["PlayerWhisper"] = value;
+                this["Setting"] = value;
             }
         }
     }

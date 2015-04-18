@@ -7,87 +7,193 @@ using TanjiMimic.Utilities;
 using TanjiMimic.Utilities.Enums;
 using TanjiMimic.Utilities.Localization;
 using Sulakore.Protocol;
-using TanjiMimic.Resources.Events.Incoming;
+using TanjiMimic.Utilities.Events.Incoming;
 using Sulakore.Communication;
 using Sulakore;
 using System.Threading.Tasks;
 using System.Diagnostics;
-
+using System.Windows;
+using Sulakore.Habbo.Headers;
+using System.Drawing;
 namespace TanjiMimic
 {
     public partial class Main : Form
     {
+        #region Variables
         private readonly object _playerLoadLock = new object();
         public static HHotel CurHotel;
         public Extension E { get; private set; }
-        private readonly IDictionary<string, IHPlayerData> _loadedPlayers;
+        private readonly IDictionary<string, PDU> _loadedPlayers;
         public IHPlayerData CurPlayer;
-        public TLang CurLang;
+        #endregion
 
         public Main(Extension extension)
         {
             E = extension;
             InitializeComponent();
-            _loadedPlayers = new Dictionary<string, IHPlayerData>();
+            _loadedPlayers = new Dictionary<string, PDU>();
+            CurHotel = E.Contractor.Hotel;
 
-            UIControls UI = new UIControls();
-            UI.FormTile = "It works";
-            UI.LanguageName = "English";
-            UI.InfoLbl = "InfoLbl";
-
-            TM.SetDirectory();
-            UI.SaveToFile(string.Format("TanjiMimic/{0}.xml", UI.LanguageName));
-
+            AutoLoad.Checked = true;
             #region Event Subscribing
-            E.InAttach(Data.Default.PlayerDataLoaded, OnPlayerDataLoaded);
-            E.InAttach(Data.Default.PlayerGesture, OnPlayerGesture);
-            E.InAttach(Data.Default.PlayerDance, OnPlayerDance);
-            E.InAttach(Data.Default.PlayerSay, OnPlayerSay);
-            E.InAttach(Data.Default.PlayerShout, OnPlayerShout);
-            E.InAttach(Data.Default.PlayerWhisper, OnPlayerWhisper);
-            E.InAttach(Data.Default.PlayerSendMessage, OnPlayerMessage);
+            E.Triggers.InAttach(Data.Default.PlayerDataLoaded, OnPlayerDataLoaded);
+            E.Triggers.InAttach(Data.Default.PlayerChangeData, OnPlayerChangeData);
+            E.Triggers.InAttach(Data.Default.PlayerActionsDetected, OnPlayerActionsDetected);
+            E.Triggers.InAttach(Data.Default.PlayerGesture, OnPlayerGesture);
+            E.Triggers.InAttach(Data.Default.PlayerDance, OnPlayerDance);
+            E.Triggers.InAttach(Data.Default.PlayerSay, OnPlayerSay);
+            E.Triggers.InAttach(Data.Default.PlayerShout, OnPlayerShout);
+            E.Triggers.InAttach(Data.Default.PlayerWhisper, OnPlayerWhisper);
+            E.Triggers.InAttach(Data.Default.PlayerSendMessage, OnPlayerMessage);
+            E.Triggers.InAttach(Data.Default.PlayerSign, OnPlayerSign);
 
+            E.Triggers.OutAttach(Data.Default.HostShout, OnHostShout);
             #endregion
         }
 
-        public void Update(IHPlayerData CurPlayer)
+        private void OnPlayerSign(HMessage obj)
         {
-            SKore.GetPlayerAvatarAsync(CurPlayer.PlayerName, CurHotel)
-                .ContinueWith(x => PlayerImg.Image = x.Result, TaskScheduler.FromCurrentSynchronizationContext());
-            PDataGrid.Rows.Clear();
+            try
+            {
+                PlayerSignEventArgs args = new PlayerSignEventArgs(obj);
+                if (MSignChckbx.Checked)
+                    if (CurPlayer.PlayerIndex == args.PlayerIndex)
+                        E.Sign(args);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
 
-            PDataGrid.Rows.Add(Strings.Name(CurLang), CurPlayer.PlayerName);
-            PDataGrid.Rows.Add(Strings.ID(CurLang), CurPlayer.PlayerId);
-            PDataGrid.Rows.Add(Strings.Tile(CurLang), CurPlayer.Tile);
-            PDataGrid.Rows.Add(Strings.Figure(CurLang), CurPlayer.FigureId);
-            PDataGrid.Rows.Add(Strings.Motto(CurLang), CurPlayer.Motto);
-            PDataGrid.Rows.Add(Strings.Gender(CurLang), CurPlayer.Gender);
-            PDataGrid.Rows.Add(Strings.Group(CurLang), CurPlayer.GroupName);
-            PDataGrid.Rows.Add(Strings.Index(CurLang), CurPlayer.PlayerIndex);
         }
-        public void Reset()
+
+        private void OnHostShout(HMessage obj)
         {
-            PDataGrid.Rows.Clear();
-            PlayerListCmbbx.Items.Clear();
-            PlayerListCmbbx.Enabled = false;
-            PlayerImg.Image = null;
-            SelectPlayerGrpbx.Text = "Select Player - Total: 0";
-            _loadedPlayers.Clear();
+            try
+            {
+                var args = new HostShoutEventArgs(obj);
+                if (args.Message.ToLower().Contains(":mimic "))
+                {
+                    var _message = args.Message.Split(' ');
+                    string UserName = _message[1];
+                    E.MimicOtherPlayer(UserName, CurHotel);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
         }
 
         private void OnPlayerMessage(HMessage obj)
         {
-            var args = new PlayerSendMessageEventArgs(obj);
+            try
+            {
+                var args = new PlayerSendMessageEventArgs(obj);
+                if (MPmChckBx.Checked)
+                    E.SendMessage(args);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
+
+        }
+
+        private void OnPlayerWhisper(HMessage obj)
+        {
+            //TODO: Add a Whisper Handler, Remmeber the say packet is different to the whisper, don't DC yourself again
+        }
+
+        private void OnPlayerShout(HMessage obj)
+        {
+            try
+            {
+                var args = new PlayerSpeakEventArgs(obj, HSpeech.Shout);
+                if (MSpeechChckbx.Checked)
+                    if (CurPlayer.PlayerIndex == args.PlayerIndex) E.Speak(args, args.Speech);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
+
+        }
+
+        private void OnPlayerSay(HMessage obj)
+        {
+            try
+            {
+                var args = new PlayerSpeakEventArgs(obj, HSpeech.Say);
+                if (MSpeechChckbx.Checked)
+                {
+                    if (CurPlayer.PlayerIndex == args.PlayerIndex) E.Speak(args, args.Speech);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
         }
 
         private void OnPlayerDance(HMessage obj)
         {
-            var args = new PlayerDanceEventArgs(obj);
+            try
+            {
+                var args = new PlayerDanceEventArgs(obj);
+                if (MDancingChckbx.Checked)
+                    if (CurPlayer.PlayerIndex == args.PlayerIndex)
+                        E.Dance(args);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
         }
 
         private void OnPlayerGesture(HMessage obj)
         {
             var args = new PlayerGestureEventArgs(obj);
+            if (MGesturesChckbx.Checked)
+                if (args.PlayerIndex == CurPlayer.PlayerIndex)
+                    E.Gesture(args);
+        }
+
+        private void OnPlayerActionsDetected(HMessage obj)
+        {
+            var args = new PlayerActionsDetectedEventArgs(obj);
+            MessageBox.Show(args.ToString());
+            foreach (IHPlayerAction Action in args.PlayerActions)
+            {
+                // Action.
+            }
+        }
+
+        private void OnPlayerChangeData(HMessage obj)
+        {
+            try
+            {
+                #region Some Parsing
+                int position = 0;
+                obj.ReadInt(ref position);
+                obj.ReadString(ref position);
+                HGender Gender = SKore.ToGender(obj.ReadString(ref position));
+                string Motto = obj.ReadString(ref position);
+                #endregion
+
+                var args = new PlayerChangeDataEventArgs(obj);
+                foreach (PDU PData in _loadedPlayers.Values)
+                {
+                    if (PData.PlayerIndex == args.PlayerIndex)
+                    {
+                        PData.Update(Motto, Gender, args.FigureId);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
         private void OnPlayerDataLoaded(HMessage obj)
@@ -97,24 +203,27 @@ namespace TanjiMimic
             {
                 Invoke(new MethodInvoker(() =>
                 {
-                    if (AutoLoadChckbx.Checked)
+                    if (AutoLoad.Checked)
                     {
                         var playerNames = new List<string>(e.LoadedPlayers.Count);
-                        foreach (IHPlayerData player in e.LoadedPlayers)
+                        foreach (IHPlayerData Previousplayer in e.LoadedPlayers)
                         {
-                            if (!_loadedPlayers.ContainsKey(player.PlayerName)) 
+                            PDU player = new PDU(Previousplayer);
+                            if (!_loadedPlayers.ContainsKey(player.PlayerName))
                             {
                                 playerNames.Add(player.PlayerName);
+
                                 _loadedPlayers.Add(player.PlayerName, player);
-                                PlayerListCmbbx.Items.Add(player.PlayerName); 
-                                PlayerListCmbbx.SelectedIndex = PlayerListCmbbx.FindStringExact(player.PlayerName);
+                                PlayerListCmbbx.Items.Add(player.PlayerName);
+                                if (PlayerListCmbbx.Items.Count < 1 || _loadedPlayers.Count < 1)
+                                    PlayerListCmbbx.SelectedIndex = PlayerListCmbbx.FindStringExact(player.PlayerName);
                             }
                             playerNames.TrimExcess();
                             if (PlayerListCmbbx.Items.Count == playerNames.Count)
                                 PlayerListCmbbx.SelectedText = player.PlayerName;
 
-                            string TitleFormat = Strings.TitleFormat(CurLang);
-                            SelectPlayerGrpbx.Text = string.Format(TitleFormat, _loadedPlayers.Count);
+                            string TitleFormat = "Players - Total: {0}";
+                            PlayersLbl.Text = string.Format(TitleFormat, _loadedPlayers.Count);
 
                             if (!PlayerListCmbbx.Enabled)
                                 PlayerListCmbbx.Enabled = true;
@@ -124,87 +233,216 @@ namespace TanjiMimic
             }
 
         }
-        #region Speak Events
-        private void OnPlayerWhisper(HMessage obj)
+        private void PlayerListCmbbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void OnPlayerShout(HMessage obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OnPlayerSay(HMessage obj)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-
-        #region Files Dropped
-        private void HeadersTxtBX_DragEnter(object sender, DragEventArgs e)
-        {
-            //if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            e.Effect = DragDropEffects.Copy;
-            //else
-            //e.Effect = DragDropEffects.None; 
-        }
-
-        private void HeadersTxtBX_DragDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            try
             {
-                string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-                MessageBox.Show(FileList.ToString());
+
+                IHPlayerData player = _loadedPlayers[(string)PlayerListCmbbx.SelectedItem];
+                CurPlayer = player;
+                PlayerImg.Image = SKore.GetPlayerAvatar(CurPlayer.PlayerName, CurHotel);
+                //GetPlayerAvatarAsync(CurPlayer.PlayerName, CurHotel)
+                                //.ContinueWith(x => PlayerImg.Image = x.Result, TaskScheduler.FromCurrentSynchronizationContext());
+                CurPlayer = player;
+                if (MMottoChckbx.Checked)
+                    E.ChangeMotto(player);
+                if (MClothesChckbx.Checked)
+                {
+                    E.ChangeClothes(player);
+                }
+                if (MMottoChckbx.Checked)
+                    E.ChangeMotto(player);
+                if (MClothesChckbx.Checked)
+                {
+                    E.ChangeClothes(player);
+                }
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.ToString());
+            }
+
+        }
+
+        private void PlayerListCmbbx_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                PlayerCmbBxMenuSrtip.Show(e.X, e.Y);
+        }
+
+        public void ClearUI()
+        {
+            PlayerListCmbbx.Items.Clear();
+            _loadedPlayers.Clear();
+            PlayersLbl.Text = "Players - Total: 0";
+        }
+
+        public void UpdateUI(UIControls UI)
+        {
+            try
+            {
+                this.Text = UI.FormTile;
+                this.HeadersTb.Text = UI.HeadersTab;
+                this.HelpTb.Text = UI.HelpTab;
+                this.OptionsTb.Text = UI.OptionsTab;
+                this.LanguageTb.Text = UI.LanguageTab;
+
+                this.SetHeadersBtn.Text = UI.SetHeadersBtn;
+                this.ResetHeadersBtn.Text = UI.ResetHeadersBtn;
+                this.LHFFBtn.Text = UI.LoadHeadersFromFileBtn;
+                this.EHTFBtn.Text = UI.ExportHeadersToFileBtn;
+                this.EHTFBtn.Text = UI.ExportHeadersToFileBtn;
+                this.ClearBtn.Text = UI.ClearPlayersBtn;
+                this.OMBtn.Text = UI.MimicBtn;
+                this.SetLangBtn.Text = UI.SetLangBtn;
+                this.LLFF.Text = UI.LoadLangFrmFileBtn;
+                this.AddBlckLstBtn.Text = UI.AddBlckLstBtn;
+                this.RemoveBlckLstBtn.Text = UI.RemoveBlckLstBtn;
+                this.ResetBtn.Text = UI.ResetBlckLstBtn;
+
+                this.InfoLbl.Text = UI.TMInfoLbl;
+                //Players label is a format you also need some sht here u fgt btch ngga
+                this.MOPLbl.Text = UI.MimicOtherPlayerLbl;
+                this.BLLbl.Text = UI.BlckLstingLbl;
+                this.ProgramingLbl.Text = UI.ProgrammingLbl;
+                this.DesignerLbl.Text = UI.DesignerLbl;
+
+                this.MPmChckBx.Text = UI.Message;
+                this.MSignChckbx.Text = UI.Sign;
+                this.MMottoChckbx.Text = UI.Motto;
+                this.MClothesChckbx.Text = UI.Clothes;
+                this.MSpeechChckbx.Text = UI.Speech;
+                this.MGesturesChckbx.Text = UI.Gestures;
+                this.MStanceChckbx.Text = UI.Stance;
+                this.MDancingChckbx.Text = UI.Dance;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+            }
+
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearUI();
+        }
+
+        private void AddBlckLstBtn_Click(object sender, EventArgs e)
+        {
+            TM.AddBlackList(BlckLstTxt.Text, BlckListCmbbx);
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            BlckListCmbbx.ResetBlackList();
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            ClearUI();
+        }
+
+        private void LHFFBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult Dr = LoadHeadersFromFile.ShowDialog();
+            if (Dr == DialogResult.OK)
+            {
+                string fileName = LoadHeadersFromFile.FileName;
+                try
+                {
+                    THeader TH = TM.LoadFromFile(fileName);
+                    TM.UpdateHeadersFromFile(TH);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error Loading Headers from this file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void LLFF_Click(object sender, EventArgs e)
+        {
+            DialogResult DR = LoadUIFromFile.ShowDialog();
+            if (DR == DialogResult.OK)
+            {
+                try
+                {
+                    UIControls UI = new UIControls();
+                    UI = UI.LoadFromFile(LoadUIFromFile.FileName);
+                    UpdateUI(UI);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.ToString());
+                    //MessageBox.Show("Error Loading UI/Language from the specified File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
         }
 
-        private void LangTxtBx_DragEnter(object sender, DragEventArgs e)
+        private void LHFDP_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            object ourData = e.Data.GetData(DataFormats.FileDrop);
+            string[] filePaths = (ourData as string[]);
+
+            if (filePaths != null && filePaths.Length > 0 && filePaths[0].EndsWith(".xml"))
+            {
                 e.Effect = DragDropEffects.Copy;
-            else
-                e.Effect = DragDropEffects.None;
-        }
-
-        private void LangTxtBx_DragDrop(object sender, DragEventArgs e)
-        {
-
-        }
-        #endregion
-
-        private void LHFromFile_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog FD = new OpenFileDialog();
-            FD.Filter = "XML Files (*.xml)|*.xml";
-            FD.InitialDirectory = "";
-            FD.Title = "Select a file to load Headers From";
-            if (FD.ShowDialog() == DialogResult.OK)
-            {
-                THeader TH = TM.LoadFromFile(FD.FileName);
-                TM.UpdateHeadersFromFile(TH);
-                MessageBox.Show("Success", "Successfully loaded Headers, Please re-open the extension", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                E.Detach(HDestination.Client);
-                E.Detach(HDestination.Server);
-                this.Close();
             }
         }
 
-        private void TMLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LHFDP_DragDrop(object sender, DragEventArgs e)
         {
-            Process.Start("https://GitHub.com/JustDevInc/TanjiMimic");
+            if (e.Effect != DragDropEffects.Copy) return;
+
+            string ourFile = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            try
+            {
+                THeader TH = TM.LoadFromFile(ourFile);
+                DialogResult DR = MessageBox.Show("Are you sure you want to load the headers from this file?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (DR == DialogResult.Yes)
+                    TM.UpdateHeadersFromFile(TH);
+                else
+                    return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error Loading Headers File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void ArachisGithubLnkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LangCmbBx_DragDrop(object sender, DragEventArgs e)
         {
-            Process.Start("https://GitHub.com/ArachisH");
+            if (e.Effect != DragDropEffects.Copy) return;
+
+            string ourFile = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            try
+            {
+                UIControls UI = new UIControls();
+                UI = UI.LoadFromFile(ourFile);
+                DialogResult DR = MessageBox.Show("Are you sure you want to load the UI from this file?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (DR == DialogResult.Yes)
+                    UpdateUI(UI);
+                else
+                    return;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
+                MessageBox.Show("Error Loading the UI File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void DarkBoxLnkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void HelpTb_Click(object sender, EventArgs e)
         {
-            Process.Start("https://DarkBox.Nl");
+
         }
 
+        private void EHTFBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -34,9 +34,9 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="Sulakore, Version=1.0.5522.33331, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Sulakore, Version=1.0.5525.38132, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\Tanji v0.6 [B-5522]\Tanji v0.6 [B-5522]\Sulakore.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\Tanji\Sulakore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,7 +56,11 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Data.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Data.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -78,6 +82,7 @@
     <Compile Include="Utilities\Enums\TSpeech.cs" />
     <Compile Include="Utilities\Enums\THeader.cs" />
     <Compile Include="Utilities\Localization\UIControls.cs" />
+    <Compile Include="Utilities\PDU.cs" />
     <Compile Include="Utilities\TM.cs" />
     <Compile Include="Utilities\Enums\TResponse.cs" />
   </ItemGroup>
@@ -85,18 +90,23 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\app.config">
-      <SubType>Designer</SubType>
-    </None>
+    <Resource Include="Resources\Images\Logo.png" />
+    <Content Include="Resources\Images\DefaultLook.gif" />
+    <Content Include="Resources\Images\Robot.ico" />
+    <Content Include="Resources\Images\Tanji.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
     <None Include="Properties\Data.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Data.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Utilities\Images\Tanji.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

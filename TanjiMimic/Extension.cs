@@ -1,9 +1,11 @@
 ﻿using Sulakore.Extensions;
 using Sulakore.Protocol;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using TanjiMimic.Properties;
 using TanjiMimic.Utilities.Enums;
+using TanjiMimic.Utilities;
 namespace TanjiMimic
 {
     public class Extension : ExtensionBase
@@ -15,10 +17,12 @@ namespace TanjiMimic
         {
             get { return "TanjiMimic"; }
         }
+
         public override string Author
         {
             get { return "JustDevInc"; }
         }
+
         protected override void OnDisposed()
         {
             if (MainUI != null)
@@ -27,8 +31,10 @@ namespace TanjiMimic
                 MainUI = null;
             }
         }
+
         protected override void OnInitialized()
         {
+            Logo = Properties.Resources.Logo;
             Priority = ExtensionPriority.High;
             if (MainUI != null) MainUI.BringToFront();
             else
@@ -41,6 +47,7 @@ namespace TanjiMimic
 
         protected override void OnDataToClient(HMessage packet)
         { }
+
         protected override void OnDataToServer(HMessage packet)
         { }
 
@@ -49,7 +56,7 @@ namespace TanjiMimic
             MainUI.Dispose();
             MainUI.FormClosed -= MainUI_FormClosed;
             MainUI = null;
-            Contractor.Unload(this);
+            Contractor.Dispose(this);
         }
     }
 }

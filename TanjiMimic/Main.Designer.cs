@@ -1,4 +1,5 @@
-﻿namespace TanjiMimic
+﻿using TanjiMimic.Utilities.Controls;
+namespace TanjiMimic
 {
     partial class Main
     {
@@ -28,293 +29,409 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.MainTbCntrl = new TanjiMimic.Utilities.Controls.TTabControl();
-            this.MainTb = new System.Windows.Forms.TabPage();
-            this.TVersionLbl = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ArachisGitHubLnkLbl = new System.Windows.Forms.LinkLabel();
-            this.DarkBoxLnkLbl = new System.Windows.Forms.LinkLabel();
-            this.InfoLbl = new System.Windows.Forms.Label();
-            this.THeaderLbl = new System.Windows.Forms.Label();
-            this.ToolboxTb = new System.Windows.Forms.TabPage();
-            this.ToolsOptionsGrpbx = new System.Windows.Forms.GroupBox();
-            this.MGesturesChckbx = new System.Windows.Forms.CheckBox();
-            this.MClothesChckbx = new System.Windows.Forms.CheckBox();
-            this.MDancingChckbx = new System.Windows.Forms.CheckBox();
+            this.PlayerImg = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.PlayersLbl = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.BlckListCmbbx = new System.Windows.Forms.ComboBox();
+            this.PlayerCmbBxMenuSrtip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AutoLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoCopyClothesMotto = new System.Windows.Forms.ToolStripMenuItem();
+            this.Clear = new System.Windows.Forms.ToolStripMenuItem();
+            this.MOPTxtBx = new System.Windows.Forms.TextBox();
+            this.MOPLbl = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.PlayerListCmbbx = new System.Windows.Forms.ComboBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.BlckLstTxt = new System.Windows.Forms.TextBox();
+            this.BLLbl = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.ProgramingLbl = new System.Windows.Forms.Label();
+            this.DesignerLbl = new System.Windows.Forms.Label();
+            this.VersionLbl = new System.Windows.Forms.Label();
+            this.LoadHeadersFromFile = new System.Windows.Forms.OpenFileDialog();
+            this.LoadUIFromFile = new System.Windows.Forms.OpenFileDialog();
+            this.ResetBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.RemoveBlckLstBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.AddBlckLstBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.OMBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.OLTbCntrl = new TanjiMimic.Utilities.Controls.TTabControl();
+            this.OptionsTb = new System.Windows.Forms.TabPage();
+            this.MPmChckBx = new System.Windows.Forms.CheckBox();
             this.MSignChckbx = new System.Windows.Forms.CheckBox();
             this.MMottoChckbx = new System.Windows.Forms.CheckBox();
-            this.MPmChckBx = new System.Windows.Forms.CheckBox();
+            this.MDancingChckbx = new System.Windows.Forms.CheckBox();
             this.MStanceChckbx = new System.Windows.Forms.CheckBox();
+            this.MGesturesChckbx = new System.Windows.Forms.CheckBox();
+            this.MClothesChckbx = new System.Windows.Forms.CheckBox();
             this.MSpeechChckbx = new System.Windows.Forms.CheckBox();
-            this.PlayerInformationGrpbx = new System.Windows.Forms.GroupBox();
-            this.PlayerInformationPnl = new System.Windows.Forms.Panel();
-            this.PDataGrid = new System.Windows.Forms.DataGridView();
-            this.DataType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PlayerImg = new System.Windows.Forms.PictureBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.TBSettingsGrpBx = new System.Windows.Forms.GroupBox();
-            this.AutoCopyCMChckbx = new System.Windows.Forms.CheckBox();
-            this.AutoLoadChckbx = new System.Windows.Forms.CheckBox();
-            this.SelectPlayerGrpbx = new System.Windows.Forms.GroupBox();
+            this.LanguageTb = new System.Windows.Forms.TabPage();
+            this.LLFF = new TanjiMimic.Utilities.Controls.TButton();
+            this.SetLangBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.LangCmbBx = new System.Windows.Forms.ComboBox();
             this.ClearBtn = new TanjiMimic.Utilities.Controls.TButton();
-            this.PlayerListCmbbx = new System.Windows.Forms.ComboBox();
-            this.SettingsTb = new System.Windows.Forms.TabPage();
-            this.LangGrpBx = new System.Windows.Forms.GroupBox();
-            this.LangTxtBx = new System.Windows.Forms.TextBox();
-            this.tButton1 = new TanjiMimic.Utilities.Controls.TButton();
-            this.tButton2 = new TanjiMimic.Utilities.Controls.TButton();
-            this.tButton6 = new TanjiMimic.Utilities.Controls.TButton();
-            this.HeaderGrpBx = new System.Windows.Forms.GroupBox();
-            this.HeadersTxtBX = new System.Windows.Forms.TextBox();
-            this.TButton5 = new TanjiMimic.Utilities.Controls.TButton();
-            this.LHFromFile = new TanjiMimic.Utilities.Controls.TButton();
-            this.TButton3 = new TanjiMimic.Utilities.Controls.TButton();
-            this.HeadersStatusLbl = new System.Windows.Forms.Label();
-            this.BlacklistingGrpBx = new System.Windows.Forms.GroupBox();
-            this.RemoveBlckListBtn = new TanjiMimic.Utilities.Controls.TButton();
-            this.ResetBlckListBtn = new TanjiMimic.Utilities.Controls.TButton();
-            this.AddBlckListBtn = new TanjiMimic.Utilities.Controls.TButton();
-            this.BlckListStatusLbl = new System.Windows.Forms.Label();
-            this.BlackListCmboBx = new System.Windows.Forms.ComboBox();
-            this.BlckListTxtBx = new System.Windows.Forms.TextBox();
-            this.SettingsGrpbx = new System.Windows.Forms.GroupBox();
-            this.DelaySpeechChckBx = new System.Windows.Forms.CheckBox();
-            this.TMLnkLbl = new System.Windows.Forms.LinkLabel();
-            this.MainTbCntrl.SuspendLayout();
-            this.MainTb.SuspendLayout();
-            this.ToolboxTb.SuspendLayout();
-            this.ToolsOptionsGrpbx.SuspendLayout();
-            this.PlayerInformationGrpbx.SuspendLayout();
-            this.PlayerInformationPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PDataGrid)).BeginInit();
+            this.HHTbCntrl = new TanjiMimic.Utilities.Controls.TTabControl();
+            this.HeadersTb = new System.Windows.Forms.TabPage();
+            this.LHFDP = new System.Windows.Forms.Panel();
+            this.ResetHeadersBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.SetHeadersBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.EHTFBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.LHFFBtn = new TanjiMimic.Utilities.Controls.TButton();
+            this.HelpTb = new System.Windows.Forms.TabPage();
+            this.InfoLbl = new System.Windows.Forms.Label();
+            this.TVersionLbl = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.TMGitHubLnkLbl = new System.Windows.Forms.LinkLabel();
+            this.DarkBoxLnkLbl = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerImg)).BeginInit();
-            this.TBSettingsGrpBx.SuspendLayout();
-            this.SelectPlayerGrpbx.SuspendLayout();
-            this.SettingsTb.SuspendLayout();
-            this.LangGrpBx.SuspendLayout();
-            this.HeaderGrpBx.SuspendLayout();
-            this.BlacklistingGrpBx.SuspendLayout();
-            this.SettingsGrpbx.SuspendLayout();
+            this.PlayerCmbBxMenuSrtip.SuspendLayout();
+            this.OLTbCntrl.SuspendLayout();
+            this.OptionsTb.SuspendLayout();
+            this.LanguageTb.SuspendLayout();
+            this.HHTbCntrl.SuspendLayout();
+            this.HeadersTb.SuspendLayout();
+            this.HelpTb.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // MainTbCntrl
-            // 
-            this.MainTbCntrl.Appearance = System.Windows.Forms.TabAppearance.Buttons;
-            this.MainTbCntrl.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.MainTbCntrl.Controls.Add(this.MainTb);
-            this.MainTbCntrl.Controls.Add(this.ToolboxTb);
-            this.MainTbCntrl.Controls.Add(this.SettingsTb);
-            this.MainTbCntrl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.MainTbCntrl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainTbCntrl.ItemSize = new System.Drawing.Size(140, 24);
-            this.MainTbCntrl.Location = new System.Drawing.Point(2, 5);
-            this.MainTbCntrl.Name = "MainTbCntrl";
-            this.MainTbCntrl.SelectedIndex = 0;
-            this.MainTbCntrl.Size = new System.Drawing.Size(433, 339);
-            this.MainTbCntrl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.MainTbCntrl.TabIndex = 0;
-            // 
-            // MainTb
-            // 
-            this.MainTb.BackColor = System.Drawing.Color.White;
-            this.MainTb.Controls.Add(this.TVersionLbl);
-            this.MainTb.Controls.Add(this.panel4);
-            this.MainTb.Controls.Add(this.panel3);
-            this.MainTb.Controls.Add(this.panel2);
-            this.MainTb.Controls.Add(this.panel1);
-            this.MainTb.Controls.Add(this.TMLnkLbl);
-            this.MainTb.Controls.Add(this.ArachisGitHubLnkLbl);
-            this.MainTb.Controls.Add(this.DarkBoxLnkLbl);
-            this.MainTb.Controls.Add(this.InfoLbl);
-            this.MainTb.Controls.Add(this.THeaderLbl);
-            this.MainTb.Location = new System.Drawing.Point(4, 28);
-            this.MainTb.Name = "MainTb";
-            this.MainTb.Padding = new System.Windows.Forms.Padding(3);
-            this.MainTb.Size = new System.Drawing.Size(425, 307);
-            this.MainTb.TabIndex = 0;
-            this.MainTb.Text = "Main";
-            // 
-            // TVersionLbl
-            // 
-            this.TVersionLbl.AutoSize = true;
-            this.TVersionLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TVersionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.TVersionLbl.Location = new System.Drawing.Point(182, 270);
-            this.TVersionLbl.Name = "TVersionLbl";
-            this.TVersionLbl.Size = new System.Drawing.Size(53, 29);
-            this.TVersionLbl.TabIndex = 11;
-            this.TVersionLbl.Text = "v0.5";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.panel4.Location = new System.Drawing.Point(-11, 238);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(437, 1);
-            this.panel4.TabIndex = 10;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.panel3.Location = new System.Drawing.Point(-13, 195);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(437, 1);
-            this.panel3.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.panel2.Location = new System.Drawing.Point(208, 202);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(3, 30);
-            this.panel2.TabIndex = 10;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.panel1.Location = new System.Drawing.Point(-15, 39);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel1.Location = new System.Drawing.Point(298, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(437, 1);
-            this.panel1.TabIndex = 9;
+            this.panel1.Size = new System.Drawing.Size(1, 178);
+            this.panel1.TabIndex = 2;
             // 
-            // ArachisGitHubLnkLbl
+            // PlayerImg
             // 
-            this.ArachisGitHubLnkLbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.ArachisGitHubLnkLbl.AutoSize = true;
-            this.ArachisGitHubLnkLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 15.75F, System.Drawing.FontStyle.Bold);
-            this.ArachisGitHubLnkLbl.ForeColor = System.Drawing.Color.Black;
-            this.ArachisGitHubLnkLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ArachisGitHubLnkLbl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ArachisGitHubLnkLbl.Location = new System.Drawing.Point(253, 203);
-            this.ArachisGitHubLnkLbl.Name = "ArachisGitHubLnkLbl";
-            this.ArachisGitHubLnkLbl.Size = new System.Drawing.Size(131, 28);
-            this.ArachisGitHubLnkLbl.TabIndex = 8;
-            this.ArachisGitHubLnkLbl.TabStop = true;
-            this.ArachisGitHubLnkLbl.Text = "GitHub.com";
-            this.ArachisGitHubLnkLbl.VisitedLinkColor = System.Drawing.Color.Maroon;
-            this.ArachisGitHubLnkLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ArachisGithubLnkLbl_LinkClicked);
+            this.PlayerImg.Image = global::TanjiMimic.Properties.Resources.DefaultLook;
+            this.PlayerImg.Location = new System.Drawing.Point(300, 0);
+            this.PlayerImg.Name = "PlayerImg";
+            this.PlayerImg.Size = new System.Drawing.Size(63, 118);
+            this.PlayerImg.TabIndex = 3;
+            this.PlayerImg.TabStop = false;
             // 
-            // DarkBoxLnkLbl
+            // panel6
             // 
-            this.DarkBoxLnkLbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.DarkBoxLnkLbl.AutoSize = true;
-            this.DarkBoxLnkLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 15.75F, System.Drawing.FontStyle.Bold);
-            this.DarkBoxLnkLbl.ForeColor = System.Drawing.Color.Black;
-            this.DarkBoxLnkLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DarkBoxLnkLbl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.DarkBoxLnkLbl.Location = new System.Drawing.Point(37, 203);
-            this.DarkBoxLnkLbl.Name = "DarkBoxLnkLbl";
-            this.DarkBoxLnkLbl.Size = new System.Drawing.Size(121, 28);
-            this.DarkBoxLnkLbl.TabIndex = 7;
-            this.DarkBoxLnkLbl.TabStop = true;
-            this.DarkBoxLnkLbl.Text = "Darkbox.nl";
-            this.DarkBoxLnkLbl.VisitedLinkColor = System.Drawing.Color.Maroon;
-            this.DarkBoxLnkLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.DarkBoxLnkLbl_LinkClicked);
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel6.Location = new System.Drawing.Point(-3, 120);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(370, 1);
+            this.panel6.TabIndex = 11;
             // 
-            // InfoLbl
+            // panel7
             // 
-            this.InfoLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.InfoLbl.Location = new System.Drawing.Point(6, 47);
-            this.InfoLbl.Name = "InfoLbl";
-            this.InfoLbl.Size = new System.Drawing.Size(397, 249);
-            this.InfoLbl.TabIndex = 2;
-            this.InfoLbl.Text = resources.GetString("InfoLbl.Text");
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel7.Location = new System.Drawing.Point(-1, 149);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(370, 1);
+            this.panel7.TabIndex = 12;
             // 
-            // THeaderLbl
+            // PlayersLbl
             // 
-            this.THeaderLbl.AutoSize = true;
-            this.THeaderLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.THeaderLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.THeaderLbl.Location = new System.Drawing.Point(125, 4);
-            this.THeaderLbl.Name = "THeaderLbl";
-            this.THeaderLbl.Size = new System.Drawing.Size(158, 35);
-            this.THeaderLbl.TabIndex = 0;
-            this.THeaderLbl.Text = "TanjiMimic";
+            this.PlayersLbl.AutoSize = true;
+            this.PlayersLbl.Location = new System.Drawing.Point(0, 129);
+            this.PlayersLbl.Name = "PlayersLbl";
+            this.PlayersLbl.Size = new System.Drawing.Size(86, 13);
+            this.PlayersLbl.TabIndex = 11;
+            this.PlayersLbl.Text = "Players - Total: 0";
             // 
-            // ToolboxTb
+            // panel8
             // 
-            this.ToolboxTb.BackColor = System.Drawing.Color.White;
-            this.ToolboxTb.Controls.Add(this.ToolsOptionsGrpbx);
-            this.ToolboxTb.Controls.Add(this.PlayerInformationGrpbx);
-            this.ToolboxTb.Controls.Add(this.TBSettingsGrpBx);
-            this.ToolboxTb.Controls.Add(this.SelectPlayerGrpbx);
-            this.ToolboxTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.ToolboxTb.Location = new System.Drawing.Point(4, 28);
-            this.ToolboxTb.Name = "ToolboxTb";
-            this.ToolboxTb.Padding = new System.Windows.Forms.Padding(3);
-            this.ToolboxTb.Size = new System.Drawing.Size(425, 307);
-            this.ToolboxTb.TabIndex = 1;
-            this.ToolboxTb.Text = "Toolbox";
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel8.Location = new System.Drawing.Point(-2, 178);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(370, 1);
+            this.panel8.TabIndex = 13;
             // 
-            // ToolsOptionsGrpbx
+            // BlckListCmbbx
             // 
-            this.ToolsOptionsGrpbx.Controls.Add(this.MGesturesChckbx);
-            this.ToolsOptionsGrpbx.Controls.Add(this.MClothesChckbx);
-            this.ToolsOptionsGrpbx.Controls.Add(this.MDancingChckbx);
-            this.ToolsOptionsGrpbx.Controls.Add(this.MSignChckbx);
-            this.ToolsOptionsGrpbx.Controls.Add(this.MMottoChckbx);
-            this.ToolsOptionsGrpbx.Controls.Add(this.MPmChckBx);
-            this.ToolsOptionsGrpbx.Controls.Add(this.MStanceChckbx);
-            this.ToolsOptionsGrpbx.Controls.Add(this.MSpeechChckbx);
-            this.ToolsOptionsGrpbx.Location = new System.Drawing.Point(3, 246);
-            this.ToolsOptionsGrpbx.Name = "ToolsOptionsGrpbx";
-            this.ToolsOptionsGrpbx.Size = new System.Drawing.Size(419, 53);
-            this.ToolsOptionsGrpbx.TabIndex = 13;
-            this.ToolsOptionsGrpbx.TabStop = false;
-            this.ToolsOptionsGrpbx.Text = "Tools/Options";
+            this.BlckListCmbbx.ContextMenuStrip = this.PlayerCmbBxMenuSrtip;
+            this.BlckListCmbbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.BlckListCmbbx.Enabled = false;
+            this.BlckListCmbbx.FormattingEnabled = true;
+            this.BlckListCmbbx.Location = new System.Drawing.Point(4, 258);
+            this.BlckListCmbbx.Name = "BlckListCmbbx";
+            this.BlckListCmbbx.Size = new System.Drawing.Size(292, 21);
+            this.BlckListCmbbx.TabIndex = 23;
             // 
-            // MGesturesChckbx
+            // PlayerCmbBxMenuSrtip
             // 
-            this.MGesturesChckbx.AutoSize = true;
-            this.MGesturesChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MGesturesChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MGesturesChckbx.Location = new System.Drawing.Point(308, 32);
-            this.MGesturesChckbx.Name = "MGesturesChckbx";
-            this.MGesturesChckbx.Size = new System.Drawing.Size(95, 17);
-            this.MGesturesChckbx.TabIndex = 10;
-            this.MGesturesChckbx.Text = "Mimic Gestures";
-            this.MGesturesChckbx.UseVisualStyleBackColor = true;
+            this.PlayerCmbBxMenuSrtip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AutoLoad,
+            this.AutoCopyClothesMotto,
+            this.Clear});
+            this.PlayerCmbBxMenuSrtip.Name = "PlayerCmbBxMenuSrtip";
+            this.PlayerCmbBxMenuSrtip.Size = new System.Drawing.Size(213, 70);
             // 
-            // MClothesChckbx
+            // AutoLoad
             // 
-            this.MClothesChckbx.AutoSize = true;
-            this.MClothesChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MClothesChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MClothesChckbx.Location = new System.Drawing.Point(115, 32);
-            this.MClothesChckbx.Name = "MClothesChckbx";
-            this.MClothesChckbx.Size = new System.Drawing.Size(88, 17);
-            this.MClothesChckbx.TabIndex = 7;
-            this.MClothesChckbx.Text = "Mimic Clothes";
-            this.MClothesChckbx.UseVisualStyleBackColor = true;
+            this.AutoLoad.Name = "AutoLoad";
+            this.AutoLoad.Size = new System.Drawing.Size(212, 22);
+            this.AutoLoad.Text = "Auto Load Data";
             // 
-            // MDancingChckbx
+            // AutoCopyClothesMotto
             // 
-            this.MDancingChckbx.AutoSize = true;
-            this.MDancingChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MDancingChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MDancingChckbx.Location = new System.Drawing.Point(308, 16);
-            this.MDancingChckbx.Name = "MDancingChckbx";
-            this.MDancingChckbx.Size = new System.Drawing.Size(93, 17);
-            this.MDancingChckbx.TabIndex = 9;
-            this.MDancingChckbx.Text = "Mimic Dancing";
-            this.MDancingChckbx.UseVisualStyleBackColor = true;
+            this.AutoCopyClothesMotto.Name = "AutoCopyClothesMotto";
+            this.AutoCopyClothesMotto.Size = new System.Drawing.Size(212, 22);
+            this.AutoCopyClothesMotto.Text = "Auto Copy Clothes/Motto";
+            // 
+            // Clear
+            // 
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(212, 22);
+            this.Clear.Text = "Clear";
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
+            // MOPTxtBx
+            // 
+            this.MOPTxtBx.Location = new System.Drawing.Point(108, 154);
+            this.MOPTxtBx.Name = "MOPTxtBx";
+            this.MOPTxtBx.Size = new System.Drawing.Size(188, 20);
+            this.MOPTxtBx.TabIndex = 11;
+            this.MOPTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // MOPLbl
+            // 
+            this.MOPLbl.AutoSize = true;
+            this.MOPLbl.Location = new System.Drawing.Point(1, 157);
+            this.MOPLbl.Name = "MOPLbl";
+            this.MOPLbl.Size = new System.Drawing.Size(95, 13);
+            this.MOPLbl.TabIndex = 24;
+            this.MOPLbl.Text = "Mimic Other Player";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel9.Location = new System.Drawing.Point(-1, 223);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(370, 1);
+            this.panel9.TabIndex = 14;
+            // 
+            // PlayerListCmbbx
+            // 
+            this.PlayerListCmbbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PlayerListCmbbx.Enabled = false;
+            this.PlayerListCmbbx.FormattingEnabled = true;
+            this.PlayerListCmbbx.Location = new System.Drawing.Point(108, 124);
+            this.PlayerListCmbbx.Name = "PlayerListCmbbx";
+            this.PlayerListCmbbx.Size = new System.Drawing.Size(188, 21);
+            this.PlayerListCmbbx.TabIndex = 26;
+            this.PlayerListCmbbx.SelectedIndexChanged += new System.EventHandler(this.PlayerListCmbbx_SelectedIndexChanged);
+            this.PlayerListCmbbx.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerListCmbbx_MouseDown);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel10.Location = new System.Drawing.Point(-2, 283);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(370, 1);
+            this.panel10.TabIndex = 15;
+            // 
+            // BlckLstTxt
+            // 
+            this.BlckLstTxt.Location = new System.Drawing.Point(68, 229);
+            this.BlckLstTxt.Name = "BlckLstTxt";
+            this.BlckLstTxt.Size = new System.Drawing.Size(154, 20);
+            this.BlckLstTxt.TabIndex = 27;
+            this.BlckLstTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BLLbl
+            // 
+            this.BLLbl.AutoSize = true;
+            this.BLLbl.Location = new System.Drawing.Point(1, 232);
+            this.BLLbl.Name = "BLLbl";
+            this.BLLbl.Size = new System.Drawing.Size(60, 13);
+            this.BLLbl.TabIndex = 11;
+            this.BLLbl.Text = "Blacklisting";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel11.Location = new System.Drawing.Point(298, 223);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(1, 60);
+            this.panel11.TabIndex = 5;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel12.Location = new System.Drawing.Point(-1, 253);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(370, 1);
+            this.panel12.TabIndex = 16;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Gray;
+            this.panel13.Location = new System.Drawing.Point(137, 287);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(2, 20);
+            this.panel13.TabIndex = 7;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Gray;
+            this.panel14.Location = new System.Drawing.Point(297, 287);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(2, 20);
+            this.panel14.TabIndex = 8;
+            // 
+            // ProgramingLbl
+            // 
+            this.ProgramingLbl.AutoSize = true;
+            this.ProgramingLbl.Location = new System.Drawing.Point(19, 291);
+            this.ProgramingLbl.Name = "ProgramingLbl";
+            this.ProgramingLbl.Size = new System.Drawing.Size(98, 13);
+            this.ProgramingLbl.TabIndex = 11;
+            this.ProgramingLbl.Text = "Proggraming: ItzUzi";
+            // 
+            // DesignerLbl
+            // 
+            this.DesignerLbl.AutoSize = true;
+            this.DesignerLbl.Location = new System.Drawing.Point(165, 291);
+            this.DesignerLbl.Name = "DesignerLbl";
+            this.DesignerLbl.Size = new System.Drawing.Size(106, 13);
+            this.DesignerLbl.TabIndex = 30;
+            this.DesignerLbl.Text = "Designer: Adversities";
+            // 
+            // VersionLbl
+            // 
+            this.VersionLbl.AutoSize = true;
+            this.VersionLbl.Location = new System.Drawing.Point(317, 291);
+            this.VersionLbl.Name = "VersionLbl";
+            this.VersionLbl.Size = new System.Drawing.Size(28, 13);
+            this.VersionLbl.TabIndex = 11;
+            this.VersionLbl.Text = "v0.6";
+            // 
+            // LoadHeadersFromFile
+            // 
+            this.LoadHeadersFromFile.DefaultExt = "xml";
+            this.LoadHeadersFromFile.FileName = "Headers.xml";
+            this.LoadHeadersFromFile.Filter = "XML Files|*.xml*";
+            this.LoadHeadersFromFile.Title = "Select File to Load Headers From";
+            // 
+            // LoadUIFromFile
+            // 
+            this.LoadUIFromFile.DefaultExt = "xml";
+            this.LoadUIFromFile.Filter = "XML Files|*.xml*";
+            // 
+            // ResetBtn
+            // 
+            this.ResetBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ResetBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.ResetBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.ResetBtn.Location = new System.Drawing.Point(301, 258);
+            this.ResetBtn.Name = "ResetBtn";
+            this.ResetBtn.Size = new System.Drawing.Size(61, 21);
+            this.ResetBtn.TabIndex = 29;
+            this.ResetBtn.Text = "Reset";
+            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
+            // 
+            // RemoveBlckLstBtn
+            // 
+            this.RemoveBlckLstBtn.BackColor = System.Drawing.Color.Transparent;
+            this.RemoveBlckLstBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.RemoveBlckLstBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.RemoveBlckLstBtn.Location = new System.Drawing.Point(301, 229);
+            this.RemoveBlckLstBtn.Name = "RemoveBlckLstBtn";
+            this.RemoveBlckLstBtn.Size = new System.Drawing.Size(61, 20);
+            this.RemoveBlckLstBtn.TabIndex = 28;
+            this.RemoveBlckLstBtn.Text = "Remove";
+            this.RemoveBlckLstBtn.Click += new System.EventHandler(this.AddBlckLstBtn_Click);
+            // 
+            // AddBlckLstBtn
+            // 
+            this.AddBlckLstBtn.BackColor = System.Drawing.Color.Transparent;
+            this.AddBlckLstBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.AddBlckLstBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.AddBlckLstBtn.Location = new System.Drawing.Point(228, 229);
+            this.AddBlckLstBtn.Name = "AddBlckLstBtn";
+            this.AddBlckLstBtn.Size = new System.Drawing.Size(68, 20);
+            this.AddBlckLstBtn.TabIndex = 28;
+            this.AddBlckLstBtn.Text = "Add";
+            this.AddBlckLstBtn.Click += new System.EventHandler(this.AddBlckLstBtn_Click);
+            // 
+            // OMBtn
+            // 
+            this.OMBtn.BackColor = System.Drawing.Color.Transparent;
+            this.OMBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.OMBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.OMBtn.Location = new System.Drawing.Point(301, 154);
+            this.OMBtn.Name = "OMBtn";
+            this.OMBtn.Size = new System.Drawing.Size(61, 20);
+            this.OMBtn.TabIndex = 25;
+            this.OMBtn.Text = "Mimic";
+            // 
+            // OLTbCntrl
+            // 
+            this.OLTbCntrl.Alignment = System.Windows.Forms.TabAlignment.Right;
+            this.OLTbCntrl.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.OLTbCntrl.Controls.Add(this.OptionsTb);
+            this.OLTbCntrl.Controls.Add(this.LanguageTb);
+            this.OLTbCntrl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.OLTbCntrl.ItemSize = new System.Drawing.Size(60, 20);
+            this.OLTbCntrl.Location = new System.Drawing.Point(-2, 179);
+            this.OLTbCntrl.Multiline = true;
+            this.OLTbCntrl.Name = "OLTbCntrl";
+            this.OLTbCntrl.SelectedIndex = 0;
+            this.OLTbCntrl.Size = new System.Drawing.Size(362, 46);
+            this.OLTbCntrl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.OLTbCntrl.TabIndex = 22;
+            // 
+            // OptionsTb
+            // 
+            this.OptionsTb.BackColor = System.Drawing.Color.White;
+            this.OptionsTb.Controls.Add(this.MPmChckBx);
+            this.OptionsTb.Controls.Add(this.MSignChckbx);
+            this.OptionsTb.Controls.Add(this.MMottoChckbx);
+            this.OptionsTb.Controls.Add(this.MDancingChckbx);
+            this.OptionsTb.Controls.Add(this.MStanceChckbx);
+            this.OptionsTb.Controls.Add(this.MGesturesChckbx);
+            this.OptionsTb.Controls.Add(this.MClothesChckbx);
+            this.OptionsTb.Controls.Add(this.MSpeechChckbx);
+            this.OptionsTb.Location = new System.Drawing.Point(4, 4);
+            this.OptionsTb.Name = "OptionsTb";
+            this.OptionsTb.Padding = new System.Windows.Forms.Padding(3);
+            this.OptionsTb.Size = new System.Drawing.Size(294, 38);
+            this.OptionsTb.TabIndex = 0;
+            this.OptionsTb.Text = "Options";
+            // 
+            // MPmChckBx
+            // 
+            this.MPmChckBx.AutoSize = true;
+            this.MPmChckBx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MPmChckBx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MPmChckBx.Location = new System.Drawing.Point(2, 0);
+            this.MPmChckBx.Name = "MPmChckBx";
+            this.MPmChckBx.Size = new System.Drawing.Size(66, 17);
+            this.MPmChckBx.TabIndex = 14;
+            this.MPmChckBx.Text = "Message";
+            this.MPmChckBx.UseVisualStyleBackColor = true;
             // 
             // MSignChckbx
             // 
             this.MSignChckbx.AutoSize = true;
             this.MSignChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MSignChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MSignChckbx.Location = new System.Drawing.Point(212, 16);
+            this.MSignChckbx.Location = new System.Drawing.Point(2, 17);
             this.MSignChckbx.Name = "MSignChckbx";
-            this.MSignChckbx.Size = new System.Drawing.Size(74, 17);
-            this.MSignChckbx.TabIndex = 4;
-            this.MSignChckbx.Text = "Mimic Sign";
+            this.MSignChckbx.Size = new System.Drawing.Size(44, 17);
+            this.MSignChckbx.TabIndex = 15;
+            this.MSignChckbx.Text = "Sign";
             this.MSignChckbx.UseVisualStyleBackColor = true;
             // 
             // MMottoChckbx
@@ -322,471 +439,368 @@
             this.MMottoChckbx.AutoSize = true;
             this.MMottoChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MMottoChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MMottoChckbx.Location = new System.Drawing.Point(115, 16);
+            this.MMottoChckbx.Location = new System.Drawing.Point(74, 2);
             this.MMottoChckbx.Name = "MMottoChckbx";
-            this.MMottoChckbx.Size = new System.Drawing.Size(80, 17);
-            this.MMottoChckbx.TabIndex = 6;
-            this.MMottoChckbx.Text = "Mimic Motto";
+            this.MMottoChckbx.Size = new System.Drawing.Size(50, 17);
+            this.MMottoChckbx.TabIndex = 17;
+            this.MMottoChckbx.Text = "Motto";
             this.MMottoChckbx.UseVisualStyleBackColor = true;
             // 
-            // MPmChckBx
+            // MDancingChckbx
             // 
-            this.MPmChckBx.AutoSize = true;
-            this.MPmChckBx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MPmChckBx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MPmChckBx.Location = new System.Drawing.Point(14, 16);
-            this.MPmChckBx.Name = "MPmChckBx";
-            this.MPmChckBx.Size = new System.Drawing.Size(96, 17);
-            this.MPmChckBx.TabIndex = 3;
-            this.MPmChckBx.Text = "Mimic Message";
-            this.MPmChckBx.UseVisualStyleBackColor = true;
+            this.MDancingChckbx.AutoSize = true;
+            this.MDancingChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MDancingChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MDancingChckbx.Location = new System.Drawing.Point(235, 17);
+            this.MDancingChckbx.Name = "MDancingChckbx";
+            this.MDancingChckbx.Size = new System.Drawing.Size(55, 17);
+            this.MDancingChckbx.TabIndex = 20;
+            this.MDancingChckbx.Text = "Dance";
+            this.MDancingChckbx.UseVisualStyleBackColor = true;
             // 
             // MStanceChckbx
             // 
             this.MStanceChckbx.AutoSize = true;
             this.MStanceChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MStanceChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MStanceChckbx.Location = new System.Drawing.Point(212, 32);
+            this.MStanceChckbx.Location = new System.Drawing.Point(235, 0);
             this.MStanceChckbx.Name = "MStanceChckbx";
-            this.MStanceChckbx.Size = new System.Drawing.Size(87, 17);
-            this.MStanceChckbx.TabIndex = 8;
-            this.MStanceChckbx.Text = "Mimic Stance";
+            this.MStanceChckbx.Size = new System.Drawing.Size(57, 17);
+            this.MStanceChckbx.TabIndex = 19;
+            this.MStanceChckbx.Text = "Stance";
             this.MStanceChckbx.UseVisualStyleBackColor = true;
+            // 
+            // MGesturesChckbx
+            // 
+            this.MGesturesChckbx.AutoSize = true;
+            this.MGesturesChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MGesturesChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MGesturesChckbx.Location = new System.Drawing.Point(155, 18);
+            this.MGesturesChckbx.Name = "MGesturesChckbx";
+            this.MGesturesChckbx.Size = new System.Drawing.Size(65, 17);
+            this.MGesturesChckbx.TabIndex = 21;
+            this.MGesturesChckbx.Text = "Gestures";
+            this.MGesturesChckbx.UseVisualStyleBackColor = true;
+            // 
+            // MClothesChckbx
+            // 
+            this.MClothesChckbx.AutoSize = true;
+            this.MClothesChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MClothesChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.MClothesChckbx.Location = new System.Drawing.Point(74, 19);
+            this.MClothesChckbx.Name = "MClothesChckbx";
+            this.MClothesChckbx.Size = new System.Drawing.Size(58, 17);
+            this.MClothesChckbx.TabIndex = 18;
+            this.MClothesChckbx.Text = "Clothes";
+            this.MClothesChckbx.UseVisualStyleBackColor = true;
             // 
             // MSpeechChckbx
             // 
             this.MSpeechChckbx.AutoSize = true;
             this.MSpeechChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MSpeechChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.MSpeechChckbx.Location = new System.Drawing.Point(14, 32);
+            this.MSpeechChckbx.Location = new System.Drawing.Point(155, 1);
             this.MSpeechChckbx.Name = "MSpeechChckbx";
-            this.MSpeechChckbx.Size = new System.Drawing.Size(90, 17);
-            this.MSpeechChckbx.TabIndex = 5;
-            this.MSpeechChckbx.Text = "Mimic Speech";
+            this.MSpeechChckbx.Size = new System.Drawing.Size(60, 17);
+            this.MSpeechChckbx.TabIndex = 16;
+            this.MSpeechChckbx.Text = "Speech";
             this.MSpeechChckbx.UseVisualStyleBackColor = true;
             // 
-            // PlayerInformationGrpbx
+            // LanguageTb
             // 
-            this.PlayerInformationGrpbx.Controls.Add(this.PlayerInformationPnl);
-            this.PlayerInformationGrpbx.Controls.Add(this.checkBox2);
-            this.PlayerInformationGrpbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.PlayerInformationGrpbx.Location = new System.Drawing.Point(3, 58);
-            this.PlayerInformationGrpbx.Name = "PlayerInformationGrpbx";
-            this.PlayerInformationGrpbx.Size = new System.Drawing.Size(419, 184);
-            this.PlayerInformationGrpbx.TabIndex = 12;
-            this.PlayerInformationGrpbx.TabStop = false;
-            this.PlayerInformationGrpbx.Text = "Player Information";
+            this.LanguageTb.BackColor = System.Drawing.Color.White;
+            this.LanguageTb.Controls.Add(this.LLFF);
+            this.LanguageTb.Controls.Add(this.SetLangBtn);
+            this.LanguageTb.Controls.Add(this.LangCmbBx);
+            this.LanguageTb.Location = new System.Drawing.Point(4, 4);
+            this.LanguageTb.Name = "LanguageTb";
+            this.LanguageTb.Padding = new System.Windows.Forms.Padding(3);
+            this.LanguageTb.Size = new System.Drawing.Size(294, 38);
+            this.LanguageTb.TabIndex = 1;
+            this.LanguageTb.Text = "Language";
             // 
-            // PlayerInformationPnl
+            // LLFF
             // 
-            this.PlayerInformationPnl.AutoScroll = true;
-            this.PlayerInformationPnl.Controls.Add(this.PDataGrid);
-            this.PlayerInformationPnl.Controls.Add(this.PlayerImg);
-            this.PlayerInformationPnl.Location = new System.Drawing.Point(6, 19);
-            this.PlayerInformationPnl.Name = "PlayerInformationPnl";
-            this.PlayerInformationPnl.Size = new System.Drawing.Size(402, 159);
-            this.PlayerInformationPnl.TabIndex = 1;
+            this.LLFF.BackColor = System.Drawing.Color.Transparent;
+            this.LLFF.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.LLFF.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.LLFF.Location = new System.Drawing.Point(170, 9);
+            this.LLFF.Name = "LLFF";
+            this.LLFF.Size = new System.Drawing.Size(123, 21);
+            this.LLFF.TabIndex = 11;
+            this.LLFF.Text = "Load From File";
+            this.LLFF.Click += new System.EventHandler(this.LLFF_Click);
             // 
-            // PDataGrid
+            // SetLangBtn
             // 
-            this.PDataGrid.AllowUserToAddRows = false;
-            this.PDataGrid.AllowUserToDeleteRows = false;
-            this.PDataGrid.AllowUserToResizeColumns = false;
-            this.PDataGrid.AllowUserToResizeRows = false;
-            this.PDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.PDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.PDataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.PDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DataType,
-            this.DataValue});
-            this.PDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.PDataGrid.Location = new System.Drawing.Point(64, 0);
-            this.PDataGrid.MultiSelect = false;
-            this.PDataGrid.Name = "PDataGrid";
-            this.PDataGrid.ReadOnly = true;
-            this.PDataGrid.RowHeadersVisible = false;
-            this.PDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.PDataGrid.ShowCellErrors = false;
-            this.PDataGrid.ShowCellToolTips = false;
-            this.PDataGrid.ShowEditingIcon = false;
-            this.PDataGrid.ShowRowErrors = false;
-            this.PDataGrid.Size = new System.Drawing.Size(338, 159);
-            this.PDataGrid.TabIndex = 1;
+            this.SetLangBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SetLangBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.SetLangBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.SetLangBtn.Location = new System.Drawing.Point(94, 9);
+            this.SetLangBtn.Name = "SetLangBtn";
+            this.SetLangBtn.Size = new System.Drawing.Size(70, 21);
+            this.SetLangBtn.TabIndex = 11;
+            this.SetLangBtn.Text = "Set";
             // 
-            // DataType
+            // LangCmbBx
             // 
-            this.DataType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataType.FillWeight = 30F;
-            this.DataType.HeaderText = "Type";
-            this.DataType.Name = "DataType";
-            this.DataType.ReadOnly = true;
-            this.DataType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DataValue
-            // 
-            this.DataValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataValue.HeaderText = "Value";
-            this.DataValue.Name = "DataValue";
-            this.DataValue.ReadOnly = true;
-            this.DataValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // PlayerImg
-            // 
-            this.PlayerImg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PlayerImg.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayerImg.ErrorImage = null;
-            this.PlayerImg.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PlayerImg.InitialImage = null;
-            this.PlayerImg.Location = new System.Drawing.Point(0, 0);
-            this.PlayerImg.Name = "PlayerImg";
-            this.PlayerImg.Size = new System.Drawing.Size(64, 159);
-            this.PlayerImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PlayerImg.TabIndex = 0;
-            this.PlayerImg.TabStop = false;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkBox2.Location = new System.Drawing.Point(223, -15);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(185, 17);
-            this.checkBox2.TabIndex = 8;
-            this.checkBox2.Text = "Automatically Copy Clothes\\Motto";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // TBSettingsGrpBx
-            // 
-            this.TBSettingsGrpBx.Controls.Add(this.AutoCopyCMChckbx);
-            this.TBSettingsGrpBx.Controls.Add(this.AutoLoadChckbx);
-            this.TBSettingsGrpBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TBSettingsGrpBx.Location = new System.Drawing.Point(228, 6);
-            this.TBSettingsGrpBx.Name = "TBSettingsGrpBx";
-            this.TBSettingsGrpBx.Size = new System.Drawing.Size(194, 49);
-            this.TBSettingsGrpBx.TabIndex = 11;
-            this.TBSettingsGrpBx.TabStop = false;
-            this.TBSettingsGrpBx.Text = "Settings";
-            // 
-            // AutoCopyCMChckbx
-            // 
-            this.AutoCopyCMChckbx.AutoSize = true;
-            this.AutoCopyCMChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AutoCopyCMChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AutoCopyCMChckbx.Location = new System.Drawing.Point(4, 28);
-            this.AutoCopyCMChckbx.Name = "AutoCopyCMChckbx";
-            this.AutoCopyCMChckbx.Size = new System.Drawing.Size(182, 17);
-            this.AutoCopyCMChckbx.TabIndex = 19;
-            this.AutoCopyCMChckbx.Text = "Automatically Copy Clothes/Motto";
-            this.AutoCopyCMChckbx.UseVisualStyleBackColor = true;
-            // 
-            // AutoLoadChckbx
-            // 
-            this.AutoLoadChckbx.AutoSize = true;
-            this.AutoLoadChckbx.Checked = true;
-            this.AutoLoadChckbx.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AutoLoadChckbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AutoLoadChckbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AutoLoadChckbx.Location = new System.Drawing.Point(4, 12);
-            this.AutoLoadChckbx.Name = "AutoLoadChckbx";
-            this.AutoLoadChckbx.Size = new System.Drawing.Size(167, 17);
-            this.AutoLoadChckbx.TabIndex = 18;
-            this.AutoLoadChckbx.Text = "Automatically Load Information";
-            this.AutoLoadChckbx.UseVisualStyleBackColor = true;
-            // 
-            // SelectPlayerGrpbx
-            // 
-            this.SelectPlayerGrpbx.Controls.Add(this.ClearBtn);
-            this.SelectPlayerGrpbx.Controls.Add(this.PlayerListCmbbx);
-            this.SelectPlayerGrpbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectPlayerGrpbx.Location = new System.Drawing.Point(3, 6);
-            this.SelectPlayerGrpbx.Name = "SelectPlayerGrpbx";
-            this.SelectPlayerGrpbx.Size = new System.Drawing.Size(223, 49);
-            this.SelectPlayerGrpbx.TabIndex = 7;
-            this.SelectPlayerGrpbx.TabStop = false;
-            this.SelectPlayerGrpbx.Text = "Select Player - Total: 0";
+            this.LangCmbBx.AllowDrop = true;
+            this.LangCmbBx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LangCmbBx.FormattingEnabled = true;
+            this.LangCmbBx.Items.AddRange(new object[] {
+            "English"});
+            this.LangCmbBx.Location = new System.Drawing.Point(2, 9);
+            this.LangCmbBx.Name = "LangCmbBx";
+            this.LangCmbBx.Size = new System.Drawing.Size(86, 21);
+            this.LangCmbBx.TabIndex = 26;
+            this.LangCmbBx.DragDrop += new System.Windows.Forms.DragEventHandler(this.LangCmbBx_DragDrop);
+            this.LangCmbBx.DragEnter += new System.Windows.Forms.DragEventHandler(this.LHFDP_DragEnter);
             // 
             // ClearBtn
             // 
             this.ClearBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ClearBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
+            this.ClearBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
             this.ClearBtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.ClearBtn.Location = new System.Drawing.Point(177, 18);
+            this.ClearBtn.Location = new System.Drawing.Point(301, 124);
             this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(40, 21);
-            this.ClearBtn.TabIndex = 8;
+            this.ClearBtn.Size = new System.Drawing.Size(61, 21);
+            this.ClearBtn.TabIndex = 10;
             this.ClearBtn.Text = "Clear";
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
-            // PlayerListCmbbx
+            // HHTbCntrl
             // 
-            this.PlayerListCmbbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PlayerListCmbbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PlayerListCmbbx.Enabled = false;
-            this.PlayerListCmbbx.FormattingEnabled = true;
-            this.PlayerListCmbbx.Location = new System.Drawing.Point(6, 18);
-            this.PlayerListCmbbx.Name = "PlayerListCmbbx";
-            this.PlayerListCmbbx.Size = new System.Drawing.Size(165, 21);
-            this.PlayerListCmbbx.TabIndex = 2;
+            this.HHTbCntrl.AllowDrop = true;
+            this.HHTbCntrl.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            this.HHTbCntrl.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.HHTbCntrl.Controls.Add(this.HeadersTb);
+            this.HHTbCntrl.Controls.Add(this.HelpTb);
+            this.HHTbCntrl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.HHTbCntrl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HHTbCntrl.ItemSize = new System.Drawing.Size(146, 24);
+            this.HHTbCntrl.Location = new System.Drawing.Point(0, 8);
+            this.HHTbCntrl.Name = "HHTbCntrl";
+            this.HHTbCntrl.SelectedIndex = 0;
+            this.HHTbCntrl.Size = new System.Drawing.Size(299, 115);
+            this.HHTbCntrl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.HHTbCntrl.TabIndex = 0;
             // 
-            // SettingsTb
+            // HeadersTb
             // 
-            this.SettingsTb.BackColor = System.Drawing.Color.White;
-            this.SettingsTb.Controls.Add(this.LangGrpBx);
-            this.SettingsTb.Controls.Add(this.HeaderGrpBx);
-            this.SettingsTb.Controls.Add(this.BlacklistingGrpBx);
-            this.SettingsTb.Controls.Add(this.SettingsGrpbx);
-            this.SettingsTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.SettingsTb.Location = new System.Drawing.Point(4, 28);
-            this.SettingsTb.Name = "SettingsTb";
-            this.SettingsTb.Padding = new System.Windows.Forms.Padding(3);
-            this.SettingsTb.Size = new System.Drawing.Size(425, 307);
-            this.SettingsTb.TabIndex = 2;
-            this.SettingsTb.Text = "Settings";
+            this.HeadersTb.AllowDrop = true;
+            this.HeadersTb.BackColor = System.Drawing.Color.White;
+            this.HeadersTb.Controls.Add(this.LHFDP);
+            this.HeadersTb.Controls.Add(this.ResetHeadersBtn);
+            this.HeadersTb.Controls.Add(this.label2);
+            this.HeadersTb.Controls.Add(this.label1);
+            this.HeadersTb.Controls.Add(this.panel4);
+            this.HeadersTb.Controls.Add(this.panel3);
+            this.HeadersTb.Controls.Add(this.panel5);
+            this.HeadersTb.Controls.Add(this.SetHeadersBtn);
+            this.HeadersTb.Controls.Add(this.panel2);
+            this.HeadersTb.Controls.Add(this.EHTFBtn);
+            this.HeadersTb.Controls.Add(this.LHFFBtn);
+            this.HeadersTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.HeadersTb.Location = new System.Drawing.Point(4, 28);
+            this.HeadersTb.Name = "HeadersTb";
+            this.HeadersTb.Padding = new System.Windows.Forms.Padding(3);
+            this.HeadersTb.Size = new System.Drawing.Size(291, 83);
+            this.HeadersTb.TabIndex = 0;
+            this.HeadersTb.Text = "Headers";
             // 
-            // LangGrpBx
+            // LHFDP
             // 
-            this.LangGrpBx.Controls.Add(this.LangTxtBx);
-            this.LangGrpBx.Controls.Add(this.tButton1);
-            this.LangGrpBx.Controls.Add(this.tButton2);
-            this.LangGrpBx.Controls.Add(this.tButton6);
-            this.LangGrpBx.Location = new System.Drawing.Point(1, 235);
-            this.LangGrpBx.Name = "LangGrpBx";
-            this.LangGrpBx.Size = new System.Drawing.Size(422, 72);
-            this.LangGrpBx.TabIndex = 18;
-            this.LangGrpBx.TabStop = false;
-            this.LangGrpBx.Text = "Language";
+            this.LHFDP.AllowDrop = true;
+            this.LHFDP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LHFDP.Location = new System.Drawing.Point(1, 7);
+            this.LHFDP.Name = "LHFDP";
+            this.LHFDP.Size = new System.Drawing.Size(123, 21);
+            this.LHFDP.TabIndex = 11;
+            this.LHFDP.DragDrop += new System.Windows.Forms.DragEventHandler(this.LHFDP_DragDrop);
+            this.LHFDP.DragEnter += new System.Windows.Forms.DragEventHandler(this.LHFDP_DragEnter);
             // 
-            // LangTxtBx
+            // ResetHeadersBtn
             // 
-            this.LangTxtBx.AllowDrop = true;
-            this.LangTxtBx.Enabled = false;
-            this.LangTxtBx.Location = new System.Drawing.Point(9, 19);
-            this.LangTxtBx.Name = "LangTxtBx";
-            this.LangTxtBx.Size = new System.Drawing.Size(407, 20);
-            this.LangTxtBx.TabIndex = 19;
-            this.LangTxtBx.DragDrop += new System.Windows.Forms.DragEventHandler(this.LangTxtBx_DragDrop);
-            this.LangTxtBx.DragEnter += new System.Windows.Forms.DragEventHandler(this.LangTxtBx_DragEnter);
+            this.ResetHeadersBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ResetHeadersBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.ResetHeadersBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.ResetHeadersBtn.Location = new System.Drawing.Point(214, 7);
+            this.ResetHeadersBtn.Name = "ResetHeadersBtn";
+            this.ResetHeadersBtn.Size = new System.Drawing.Size(75, 21);
+            this.ResetHeadersBtn.TabIndex = 10;
+            this.ResetHeadersBtn.Text = "Reset";
             // 
-            // tButton1
+            // label2
             // 
-            this.tButton1.BackColor = System.Drawing.Color.Transparent;
-            this.tButton1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.tButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.tButton1.Location = new System.Drawing.Point(285, 45);
-            this.tButton1.Name = "tButton1";
-            this.tButton1.Size = new System.Drawing.Size(133, 21);
-            this.tButton1.TabIndex = 18;
-            this.tButton1.Text = "Export  UI To File";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(190, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Export!";
             // 
-            // tButton2
+            // label1
             // 
-            this.tButton2.BackColor = System.Drawing.Color.Transparent;
-            this.tButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.tButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.tButton2.Location = new System.Drawing.Point(127, 45);
-            this.tButton2.Name = "tButton2";
-            this.tButton2.Size = new System.Drawing.Size(152, 21);
-            this.tButton2.TabIndex = 17;
-            this.tButton2.Text = "Load UI From File";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(189, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Loaded!";
             // 
-            // tButton6
+            // panel4
             // 
-            this.tButton6.BackColor = System.Drawing.Color.Transparent;
-            this.tButton6.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.tButton6.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.tButton6.Location = new System.Drawing.Point(7, 45);
-            this.tButton6.Name = "tButton6";
-            this.tButton6.Size = new System.Drawing.Size(111, 21);
-            this.tButton6.TabIndex = 16;
-            this.tButton6.Text = "Reset UI";
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel4.Location = new System.Drawing.Point(287, 58);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(2, 20);
+            this.panel4.TabIndex = 7;
             // 
-            // HeaderGrpBx
+            // panel3
             // 
-            this.HeaderGrpBx.Controls.Add(this.HeadersTxtBX);
-            this.HeaderGrpBx.Controls.Add(this.TButton5);
-            this.HeaderGrpBx.Controls.Add(this.LHFromFile);
-            this.HeaderGrpBx.Controls.Add(this.TButton3);
-            this.HeaderGrpBx.Controls.Add(this.HeadersStatusLbl);
-            this.HeaderGrpBx.Location = new System.Drawing.Point(1, 44);
-            this.HeaderGrpBx.Name = "HeaderGrpBx";
-            this.HeaderGrpBx.Size = new System.Drawing.Size(422, 91);
-            this.HeaderGrpBx.TabIndex = 16;
-            this.HeaderGrpBx.TabStop = false;
-            this.HeaderGrpBx.Text = "Headers";
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel3.Location = new System.Drawing.Point(287, 33);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(2, 20);
+            this.panel3.TabIndex = 5;
             // 
-            // HeadersTxtBX
+            // panel5
             // 
-            this.HeadersTxtBX.AllowDrop = true;
-            this.HeadersTxtBX.Location = new System.Drawing.Point(9, 20);
-            this.HeadersTxtBX.Name = "HeadersTxtBX";
-            this.HeadersTxtBX.Size = new System.Drawing.Size(407, 20);
-            this.HeadersTxtBX.TabIndex = 15;
-            this.HeadersTxtBX.DragDrop += new System.Windows.Forms.DragEventHandler(this.HeadersTxtBX_DragDrop);
-            this.HeadersTxtBX.DragEnter += new System.Windows.Forms.DragEventHandler(this.HeadersTxtBX_DragEnter);
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel5.Location = new System.Drawing.Point(132, 58);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(2, 20);
+            this.panel5.TabIndex = 6;
             // 
-            // TButton5
+            // SetHeadersBtn
             // 
-            this.TButton5.BackColor = System.Drawing.Color.Transparent;
-            this.TButton5.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.TButton5.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.TButton5.Location = new System.Drawing.Point(285, 48);
-            this.TButton5.Name = "TButton5";
-            this.TButton5.Size = new System.Drawing.Size(133, 21);
-            this.TButton5.TabIndex = 14;
-            this.TButton5.Text = "Export Header To File";
+            this.SetHeadersBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SetHeadersBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.SetHeadersBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.SetHeadersBtn.Location = new System.Drawing.Point(132, 7);
+            this.SetHeadersBtn.Name = "SetHeadersBtn";
+            this.SetHeadersBtn.Size = new System.Drawing.Size(76, 21);
+            this.SetHeadersBtn.TabIndex = 6;
+            this.SetHeadersBtn.Text = "Set";
             // 
-            // LHFromFile
+            // panel2
             // 
-            this.LHFromFile.BackColor = System.Drawing.Color.Transparent;
-            this.LHFromFile.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.LHFromFile.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.LHFromFile.Location = new System.Drawing.Point(127, 48);
-            this.LHFromFile.Name = "LHFromFile";
-            this.LHFromFile.Size = new System.Drawing.Size(152, 21);
-            this.LHFromFile.TabIndex = 13;
-            this.LHFromFile.Text = "Load From File";
-            this.LHFromFile.Click += new System.EventHandler(this.LHFromFile_Click);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel2.Location = new System.Drawing.Point(132, 33);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(2, 20);
+            this.panel2.TabIndex = 4;
             // 
-            // TButton3
+            // EHTFBtn
             // 
-            this.TButton3.BackColor = System.Drawing.Color.Transparent;
-            this.TButton3.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.TButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.TButton3.Location = new System.Drawing.Point(7, 48);
-            this.TButton3.Name = "TButton3";
-            this.TButton3.Size = new System.Drawing.Size(111, 21);
-            this.TButton3.TabIndex = 12;
-            this.TButton3.Text = "Reset Headers";
+            this.EHTFBtn.BackColor = System.Drawing.Color.Transparent;
+            this.EHTFBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.EHTFBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.EHTFBtn.Location = new System.Drawing.Point(1, 58);
+            this.EHTFBtn.Name = "EHTFBtn";
+            this.EHTFBtn.Size = new System.Drawing.Size(123, 20);
+            this.EHTFBtn.TabIndex = 2;
+            this.EHTFBtn.Text = "Export To File";
+            this.EHTFBtn.Click += new System.EventHandler(this.EHTFBtn_Click);
             // 
-            // HeadersStatusLbl
+            // LHFFBtn
             // 
-            this.HeadersStatusLbl.AutoSize = true;
-            this.HeadersStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.HeadersStatusLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.HeadersStatusLbl.Location = new System.Drawing.Point(6, 72);
-            this.HeadersStatusLbl.Name = "HeadersStatusLbl";
-            this.HeadersStatusLbl.Size = new System.Drawing.Size(152, 15);
-            this.HeadersStatusLbl.TabIndex = 3;
-            this.HeadersStatusLbl.Text = "Status: Awaiting User Input";
+            this.LHFFBtn.BackColor = System.Drawing.Color.Transparent;
+            this.LHFFBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.LHFFBtn.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.LHFFBtn.Location = new System.Drawing.Point(1, 33);
+            this.LHFFBtn.Name = "LHFFBtn";
+            this.LHFFBtn.Size = new System.Drawing.Size(123, 20);
+            this.LHFFBtn.TabIndex = 1;
+            this.LHFFBtn.Text = "Load To File";
+            this.LHFFBtn.Click += new System.EventHandler(this.LHFFBtn_Click);
             // 
-            // BlacklistingGrpBx
+            // HelpTb
             // 
-            this.BlacklistingGrpBx.Controls.Add(this.RemoveBlckListBtn);
-            this.BlacklistingGrpBx.Controls.Add(this.ResetBlckListBtn);
-            this.BlacklistingGrpBx.Controls.Add(this.AddBlckListBtn);
-            this.BlacklistingGrpBx.Controls.Add(this.BlckListStatusLbl);
-            this.BlacklistingGrpBx.Controls.Add(this.BlackListCmboBx);
-            this.BlacklistingGrpBx.Controls.Add(this.BlckListTxtBx);
-            this.BlacklistingGrpBx.Location = new System.Drawing.Point(1, 137);
-            this.BlacklistingGrpBx.Name = "BlacklistingGrpBx";
-            this.BlacklistingGrpBx.Size = new System.Drawing.Size(422, 95);
-            this.BlacklistingGrpBx.TabIndex = 17;
-            this.BlacklistingGrpBx.TabStop = false;
-            this.BlacklistingGrpBx.Text = "Blacklisting";
+            this.HelpTb.BackColor = System.Drawing.Color.White;
+            this.HelpTb.Controls.Add(this.InfoLbl);
+            this.HelpTb.Controls.Add(this.TVersionLbl);
+            this.HelpTb.Controls.Add(this.panel16);
+            this.HelpTb.Controls.Add(this.panel15);
+            this.HelpTb.Controls.Add(this.TMGitHubLnkLbl);
+            this.HelpTb.Controls.Add(this.DarkBoxLnkLbl);
+            this.HelpTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.HelpTb.Location = new System.Drawing.Point(4, 28);
+            this.HelpTb.Name = "HelpTb";
+            this.HelpTb.Padding = new System.Windows.Forms.Padding(3);
+            this.HelpTb.Size = new System.Drawing.Size(291, 83);
+            this.HelpTb.TabIndex = 1;
+            this.HelpTb.Text = "Help";
+            this.HelpTb.Click += new System.EventHandler(this.HelpTb_Click);
             // 
-            // RemoveBlckListBtn
+            // InfoLbl
             // 
-            this.RemoveBlckListBtn.BackColor = System.Drawing.Color.Transparent;
-            this.RemoveBlckListBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.RemoveBlckListBtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.RemoveBlckListBtn.Location = new System.Drawing.Point(285, 46);
-            this.RemoveBlckListBtn.Name = "RemoveBlckListBtn";
-            this.RemoveBlckListBtn.Size = new System.Drawing.Size(133, 21);
-            this.RemoveBlckListBtn.TabIndex = 14;
-            this.RemoveBlckListBtn.Text = "Remove Blacklist Text";
+            this.InfoLbl.AutoSize = true;
+            this.InfoLbl.Location = new System.Drawing.Point(-1, 32);
+            this.InfoLbl.Name = "InfoLbl";
+            this.InfoLbl.Size = new System.Drawing.Size(277, 26);
+            this.InfoLbl.TabIndex = 31;
+            this.InfoLbl.Text = "Tanjimimic is Open source and the repositoryis hosted on \r\nGitHub and is open to " +
+    "the public.";
             // 
-            // ResetBlckListBtn
+            // TVersionLbl
             // 
-            this.ResetBlckListBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ResetBlckListBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.ResetBlckListBtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.ResetBlckListBtn.Location = new System.Drawing.Point(285, 19);
-            this.ResetBlckListBtn.Name = "ResetBlckListBtn";
-            this.ResetBlckListBtn.Size = new System.Drawing.Size(133, 20);
-            this.ResetBlckListBtn.TabIndex = 13;
-            this.ResetBlckListBtn.Text = "Reset";
+            this.TVersionLbl.AutoSize = true;
+            this.TVersionLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TVersionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.TVersionLbl.Location = new System.Drawing.Point(124, 60);
+            this.TVersionLbl.Name = "TVersionLbl";
+            this.TVersionLbl.Size = new System.Drawing.Size(40, 22);
+            this.TVersionLbl.TabIndex = 17;
+            this.TVersionLbl.Text = "v0.6";
             // 
-            // AddBlckListBtn
+            // panel16
             // 
-            this.AddBlckListBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AddBlckListBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(89)))), ((int)(((byte)(47)))));
-            this.AddBlckListBtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.AddBlckListBtn.Location = new System.Drawing.Point(134, 19);
-            this.AddBlckListBtn.Name = "AddBlckListBtn";
-            this.AddBlckListBtn.Size = new System.Drawing.Size(145, 20);
-            this.AddBlckListBtn.TabIndex = 12;
-            this.AddBlckListBtn.Text = "Add Blacklist Text";
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel16.Location = new System.Drawing.Point(-1, 27);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(291, 1);
+            this.panel16.TabIndex = 16;
             // 
-            // BlckListStatusLbl
+            // panel15
             // 
-            this.BlckListStatusLbl.AutoSize = true;
-            this.BlckListStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.BlckListStatusLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BlckListStatusLbl.Location = new System.Drawing.Point(6, 70);
-            this.BlckListStatusLbl.Name = "BlckListStatusLbl";
-            this.BlckListStatusLbl.Size = new System.Drawing.Size(152, 15);
-            this.BlckListStatusLbl.TabIndex = 3;
-            this.BlckListStatusLbl.Text = "Status: Awaiting User Input";
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(159)))), ((int)(((byte)(247)))));
+            this.panel15.Location = new System.Drawing.Point(143, 2);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(2, 25);
+            this.panel15.TabIndex = 10;
             // 
-            // BlackListCmboBx
+            // TMGitHubLnkLbl
             // 
-            this.BlackListCmboBx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.BlackListCmboBx.FormattingEnabled = true;
-            this.BlackListCmboBx.Location = new System.Drawing.Point(7, 46);
-            this.BlackListCmboBx.Name = "BlackListCmboBx";
-            this.BlackListCmboBx.Size = new System.Drawing.Size(272, 21);
-            this.BlackListCmboBx.TabIndex = 1;
+            this.TMGitHubLnkLbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.TMGitHubLnkLbl.AutoSize = true;
+            this.TMGitHubLnkLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12.75F, System.Drawing.FontStyle.Bold);
+            this.TMGitHubLnkLbl.ForeColor = System.Drawing.Color.Black;
+            this.TMGitHubLnkLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TMGitHubLnkLbl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.TMGitHubLnkLbl.Location = new System.Drawing.Point(172, 3);
+            this.TMGitHubLnkLbl.Name = "TMGitHubLnkLbl";
+            this.TMGitHubLnkLbl.Size = new System.Drawing.Size(107, 22);
+            this.TMGitHubLnkLbl.TabIndex = 9;
+            this.TMGitHubLnkLbl.TabStop = true;
+            this.TMGitHubLnkLbl.Text = "GitHub.com";
+            this.TMGitHubLnkLbl.VisitedLinkColor = System.Drawing.Color.Maroon;
             // 
-            // BlckListTxtBx
+            // DarkBoxLnkLbl
             // 
-            this.BlckListTxtBx.Location = new System.Drawing.Point(6, 19);
-            this.BlckListTxtBx.Name = "BlckListTxtBx";
-            this.BlckListTxtBx.Size = new System.Drawing.Size(122, 20);
-            this.BlckListTxtBx.TabIndex = 0;
-            // 
-            // SettingsGrpbx
-            // 
-            this.SettingsGrpbx.Controls.Add(this.DelaySpeechChckBx);
-            this.SettingsGrpbx.Location = new System.Drawing.Point(1, 5);
-            this.SettingsGrpbx.Name = "SettingsGrpbx";
-            this.SettingsGrpbx.Size = new System.Drawing.Size(422, 37);
-            this.SettingsGrpbx.TabIndex = 15;
-            this.SettingsGrpbx.TabStop = false;
-            this.SettingsGrpbx.Text = "Misc";
-            // 
-            // DelaySpeechChckBx
-            // 
-            this.DelaySpeechChckBx.AutoSize = true;
-            this.DelaySpeechChckBx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DelaySpeechChckBx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DelaySpeechChckBx.Location = new System.Drawing.Point(11, 13);
-            this.DelaySpeechChckBx.Name = "DelaySpeechChckBx";
-            this.DelaySpeechChckBx.Size = new System.Drawing.Size(129, 17);
-            this.DelaySpeechChckBx.TabIndex = 16;
-            this.DelaySpeechChckBx.Text = "Delay Speech Mimic ?";
-            this.DelaySpeechChckBx.UseVisualStyleBackColor = true;
-            // 
-            // TMLnkLbl
-            // 
-            this.TMLnkLbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.TMLnkLbl.AutoSize = true;
-            this.TMLnkLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TMLnkLbl.ForeColor = System.Drawing.Color.Black;
-            this.TMLnkLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TMLnkLbl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.TMLnkLbl.Location = new System.Drawing.Point(184, 120);
-            this.TMLnkLbl.Name = "TMLnkLbl";
-            this.TMLnkLbl.Size = new System.Drawing.Size(208, 17);
-            this.TMLnkLbl.TabIndex = 8;
-            this.TMLnkLbl.TabStop = true;
-            this.TMLnkLbl.Text = "GitHub.com/JustDevInc/TanjiMimic";
-            this.TMLnkLbl.VisitedLinkColor = System.Drawing.Color.Maroon;
-            this.TMLnkLbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.TMLink_LinkClicked);
+            this.DarkBoxLnkLbl.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.DarkBoxLnkLbl.AutoSize = true;
+            this.DarkBoxLnkLbl.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12.75F, System.Drawing.FontStyle.Bold);
+            this.DarkBoxLnkLbl.ForeColor = System.Drawing.Color.Black;
+            this.DarkBoxLnkLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DarkBoxLnkLbl.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.DarkBoxLnkLbl.Location = new System.Drawing.Point(15, 3);
+            this.DarkBoxLnkLbl.Name = "DarkBoxLnkLbl";
+            this.DarkBoxLnkLbl.Size = new System.Drawing.Size(99, 22);
+            this.DarkBoxLnkLbl.TabIndex = 8;
+            this.DarkBoxLnkLbl.TabStop = true;
+            this.DarkBoxLnkLbl.Text = "Darkbox.nl";
+            this.DarkBoxLnkLbl.VisitedLinkColor = System.Drawing.Color.Maroon;
             // 
             // Main
             // 
@@ -794,70 +808,78 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(436, 340);
-            this.Controls.Add(this.MainTbCntrl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.ClientSize = new System.Drawing.Size(366, 310);
+            this.Controls.Add(this.VersionLbl);
+            this.Controls.Add(this.DesignerLbl);
+            this.Controls.Add(this.ProgramingLbl);
+            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.panel13);
+            this.Controls.Add(this.panel12);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.ResetBtn);
+            this.Controls.Add(this.RemoveBlckLstBtn);
+            this.Controls.Add(this.AddBlckLstBtn);
+            this.Controls.Add(this.BLLbl);
+            this.Controls.Add(this.BlckLstTxt);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.PlayerListCmbbx);
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.OMBtn);
+            this.Controls.Add(this.MOPLbl);
+            this.Controls.Add(this.MOPTxtBx);
+            this.Controls.Add(this.BlckListCmbbx);
+            this.Controls.Add(this.OLTbCntrl);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.PlayersLbl);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.ClearBtn);
+            this.Controls.Add(this.PlayerImg);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.HHTbCntrl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TanjiMimic -Main";
-            this.MainTbCntrl.ResumeLayout(false);
-            this.MainTb.ResumeLayout(false);
-            this.MainTb.PerformLayout();
-            this.ToolboxTb.ResumeLayout(false);
-            this.ToolsOptionsGrpbx.ResumeLayout(false);
-            this.ToolsOptionsGrpbx.PerformLayout();
-            this.PlayerInformationGrpbx.ResumeLayout(false);
-            this.PlayerInformationGrpbx.PerformLayout();
-            this.PlayerInformationPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PDataGrid)).EndInit();
+            this.Text = "TanjiMimic v0.6";
             ((System.ComponentModel.ISupportInitialize)(this.PlayerImg)).EndInit();
-            this.TBSettingsGrpBx.ResumeLayout(false);
-            this.TBSettingsGrpBx.PerformLayout();
-            this.SelectPlayerGrpbx.ResumeLayout(false);
-            this.SettingsTb.ResumeLayout(false);
-            this.LangGrpBx.ResumeLayout(false);
-            this.LangGrpBx.PerformLayout();
-            this.HeaderGrpBx.ResumeLayout(false);
-            this.HeaderGrpBx.PerformLayout();
-            this.BlacklistingGrpBx.ResumeLayout(false);
-            this.BlacklistingGrpBx.PerformLayout();
-            this.SettingsGrpbx.ResumeLayout(false);
-            this.SettingsGrpbx.PerformLayout();
+            this.PlayerCmbBxMenuSrtip.ResumeLayout(false);
+            this.OLTbCntrl.ResumeLayout(false);
+            this.OptionsTb.ResumeLayout(false);
+            this.OptionsTb.PerformLayout();
+            this.LanguageTb.ResumeLayout(false);
+            this.HHTbCntrl.ResumeLayout(false);
+            this.HeadersTb.ResumeLayout(false);
+            this.HeadersTb.PerformLayout();
+            this.HelpTb.ResumeLayout(false);
+            this.HelpTb.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private TanjiMimic.Utilities.Controls.TTabControl MainTbCntrl;
-        private System.Windows.Forms.TabPage MainTb;
-        private System.Windows.Forms.TabPage ToolboxTb;
-        private System.Windows.Forms.TabPage SettingsTb;
-        private System.Windows.Forms.Label THeaderLbl;
-        private System.Windows.Forms.Label InfoLbl;
-        private System.Windows.Forms.LinkLabel ArachisGitHubLnkLbl;
-        private System.Windows.Forms.LinkLabel DarkBoxLnkLbl;
+        private TTabControl HHTbCntrl;
+        private System.Windows.Forms.TabPage HeadersTb;
+        private System.Windows.Forms.TabPage HelpTb;
+        private TButton LHFFBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label TVersionLbl;
-        private System.Windows.Forms.GroupBox SelectPlayerGrpbx;
-        private TanjiMimic.Utilities.Controls.TButton ClearBtn;
-        private System.Windows.Forms.ComboBox PlayerListCmbbx;
-        private System.Windows.Forms.GroupBox TBSettingsGrpBx;
-        private System.Windows.Forms.CheckBox AutoCopyCMChckbx;
-        private System.Windows.Forms.CheckBox AutoLoadChckbx;
-        private System.Windows.Forms.GroupBox PlayerInformationGrpbx;
-        private System.Windows.Forms.Panel PlayerInformationPnl;
-        private System.Windows.Forms.DataGridView PDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataValue;
         private System.Windows.Forms.PictureBox PlayerImg;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.GroupBox ToolsOptionsGrpbx;
+        private TButton SetHeadersBtn;
+        private TButton EHTFBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel2;
+        private TButton ClearBtn;
+        private TButton ResetHeadersBtn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label PlayersLbl;
+        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.CheckBox MGesturesChckbx;
         private System.Windows.Forms.CheckBox MClothesChckbx;
         private System.Windows.Forms.CheckBox MDancingChckbx;
@@ -866,27 +888,44 @@
         private System.Windows.Forms.CheckBox MPmChckBx;
         private System.Windows.Forms.CheckBox MStanceChckbx;
         private System.Windows.Forms.CheckBox MSpeechChckbx;
-        private System.Windows.Forms.GroupBox LangGrpBx;
-        private System.Windows.Forms.GroupBox HeaderGrpBx;
-        private System.Windows.Forms.Label HeadersStatusLbl;
-        private System.Windows.Forms.GroupBox BlacklistingGrpBx;
-        private System.Windows.Forms.Label BlckListStatusLbl;
-        private System.Windows.Forms.ComboBox BlackListCmboBx;
-        private System.Windows.Forms.TextBox BlckListTxtBx;
-        private System.Windows.Forms.GroupBox SettingsGrpbx;
-        private System.Windows.Forms.CheckBox DelaySpeechChckBx;
-        private TanjiMimic.Utilities.Controls.TButton TButton5;
-        private TanjiMimic.Utilities.Controls.TButton LHFromFile;
-        private TanjiMimic.Utilities.Controls.TButton TButton3;
-        private TanjiMimic.Utilities.Controls.TButton AddBlckListBtn;
-        private TanjiMimic.Utilities.Controls.TButton RemoveBlckListBtn;
-        private TanjiMimic.Utilities.Controls.TButton ResetBlckListBtn;
-        private System.Windows.Forms.TextBox HeadersTxtBX;
-        private System.Windows.Forms.TextBox LangTxtBx;
-        private Utilities.Controls.TButton tButton1;
-        private Utilities.Controls.TButton tButton2;
-        private Utilities.Controls.TButton tButton6;
-        private System.Windows.Forms.LinkLabel TMLnkLbl;
+        private TTabControl OLTbCntrl;
+        private System.Windows.Forms.TabPage OptionsTb;
+        private System.Windows.Forms.TabPage LanguageTb;
+        private System.Windows.Forms.ComboBox BlckListCmbbx;
+        private System.Windows.Forms.TextBox MOPTxtBx;
+        private System.Windows.Forms.Label MOPLbl;
+        private TButton OMBtn;
+        private TButton SetLangBtn;
+        private System.Windows.Forms.ComboBox LangCmbBx;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.ComboBox PlayerListCmbbx;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox BlckLstTxt;
+        private System.Windows.Forms.Label BLLbl;
+        private TButton AddBlckLstBtn;
+        private TButton ResetBtn;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private TButton LLFF;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label ProgramingLbl;
+        private System.Windows.Forms.Label DesignerLbl;
+        private System.Windows.Forms.Label VersionLbl;
+        private System.Windows.Forms.LinkLabel TMGitHubLnkLbl;
+        private System.Windows.Forms.LinkLabel DarkBoxLnkLbl;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label InfoLbl;
+        private System.Windows.Forms.Label TVersionLbl;
+        private System.Windows.Forms.ContextMenuStrip PlayerCmbBxMenuSrtip;
+        private System.Windows.Forms.ToolStripMenuItem AutoLoad;
+        private System.Windows.Forms.ToolStripMenuItem AutoCopyClothesMotto;
+        private System.Windows.Forms.ToolStripMenuItem Clear;
+        private TButton RemoveBlckLstBtn;
+        private System.Windows.Forms.OpenFileDialog LoadHeadersFromFile;
+        private System.Windows.Forms.OpenFileDialog LoadUIFromFile;
+        private System.Windows.Forms.Panel LHFDP;
     }
 }
 

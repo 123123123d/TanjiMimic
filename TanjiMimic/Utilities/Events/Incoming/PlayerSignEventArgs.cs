@@ -5,7 +5,7 @@ using Sulakore.Protocol;
 using Sulakore.Communication;
 using Sulakore;
 
-namespace TanjiMimic.Resources.Events.Incoming
+namespace TanjiMimic.Utilities.Events.Incoming
 {
     public class PlayerSignEventArgs : EventArgs, IHabboEvent
     {

@@ -5,10 +5,11 @@ using System.IO;
 using System.Xml.Serialization;
 using TanjiMimic.Utilities.Enums;
 using Sulakore.Habbo;
-using TanjiMimic.Resources.Events.Incoming;
 using Sulakore.Protocol;
 using Sulakore;
 using Sulakore.Communication;
+using TanjiMimic.Utilities.Events.Incoming;
+using TanjiMimic.Utilities.Localization;
 
 namespace TanjiMimic.Utilities
 {
@@ -65,6 +66,11 @@ namespace TanjiMimic.Utilities
                 Bx.SelectedItem = item;
             }
         }
+        public static void ResetBlackList(this ComboBox Bx)
+        {
+            Bx.Items.Clear();
+            Data.Default.BlackListTxt.Clear();
+        }
 
         public static THeader LoadFromFile(string FileName)
         {
@@ -74,11 +80,16 @@ namespace TanjiMimic.Utilities
                 return (THeader)Xs.Deserialize(FS);
             }
         }
+        public static void ExportHeadersToFile(string Location)
+        {
+
+        }
         public static void UpdateHeadersFromFile(THeader TH)
         {
             var D = Data.Default;
             #region Incoming Headers
             D.PlayerDataLoaded = TH.PlayerDataLoaded;
+            D.PlayerChangeData = TH.PlayerChangeData;
             D.PlayerGesture = TH.PlayerGesture;
             D.PlayerDance = TH.PlayerDance;
             D.PlayerSay = TH.PlayerSay;
@@ -105,40 +116,61 @@ namespace TanjiMimic.Utilities
         {
             if (!Directory.Exists("TanjiMimic")) Directory.CreateDirectory("TanjiMimic");
         }
-        public static void SetLang(TLang Lang)
+
+        public static bool isBlackListed(string Msg)
         {
-            switch (Lang)
+            foreach (string BlckList in Data.Default.BlackListTxt)
             {
-                case TLang.English:
-                    Data.Default.SavedLang = "English";
-                    break;
-                case TLang.Spanish:
-                    Data.Default.SavedLang = "Spanish";
-                    break;
-                case TLang.None:
-                    break;
-                default:
-                    break;
+                Msg = Msg.ToLower();
+                var blckwrd = BlckList.ToLower();
+                if (Msg.Contains(blckwrd)) return true;
             }
-            Data.Default.SavedLang = Lang.ToString();
-            UpdateData();
+            return false;
         }
 
+        public static void MimicOtherPlayer(this Extension E, string PlayerName, HHotel Hotel)
+        {
+            try
+            {
+                if (!SKore.CheckPlayerName(PlayerName, Hotel))
+                {
+                    E.ChangeClothes(PlayerName, Hotel);
+                    E.ChangeMotto(PlayerName, Hotel);
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Sorry the player '{0}' could not be found on {1}", PlayerName, Hotel.ToDomain()), "Error");
+                }
+            }
+            catch (Exception e)
+            {
+                
+                MessageBox.Show(e.ToString());
+            }
+            
+        }
         public static void Speak(this Extension E, PlayerSpeakEventArgs e, HSpeech Speech)
         {
-            switch (Speech)
+            try
             {
-                case HSpeech.Say:
-                    E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostSay, e.Message, e.Theme.Juice(), 0));
-                    break;
-                case HSpeech.Shout:
-                    E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostShout, e.Message, e.Theme.Juice()));
-                    break;
-                case HSpeech.Whisper:
-                    E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostWhisper, e.Message, e.Theme.Juice())); //This will DC you COME BACK TO THIS
-                    break;
-                default:
-                    break;
+                switch (Speech)
+                {
+                    case HSpeech.Say:
+                        E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostSay, e.Message, e.Theme.Juice(), 0));
+                        break;
+                    case HSpeech.Shout:
+                        E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostShout, e.Message, e.Theme.Juice()));
+                        break;
+                    case HSpeech.Whisper:
+                        E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostWhisper, e.Message, e.Theme.Juice())); //This will DC you COME BACK TO THIS
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.ToString());
             }
 
         }
@@ -157,13 +189,29 @@ namespace TanjiMimic.Utilities
             else
                 E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostChangeClothes, HGender.Female.ToString()[0], player.FigureId));
         }
+        public static void ChangeClothes(this Extension E, string PlayerName, HHotel Hotel)
+        {
+            string FigureID = SKore.GetPlayerFigureId(PlayerName, Hotel);
+            E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostChangeClothes, HGender.Male.ToString()[0], FigureID));
+        }
         public static void ChangeMotto(this Extension E, IHPlayerData player)
         {
             E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostChangeMotto, player.Motto));
         }
+        public static void ChangeMotto(this Extension E, string PlayerName, HHotel Hotel)
+        {
+            string Motto = SKore.GetPlayerMotto(PlayerName, Hotel);
+            E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostChangeMotto, Motto));
+
+        }
         public static void SendMessage(this Extension E, PlayerSendMessageEventArgs e)
         {
             E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostSendMessage, e.PlayerID, e.Message));
+        }
+        public static void Sign(this Extension E, PlayerSignEventArgs e)
+        {
+            E.Contractor.SendToServer(HMessage.Construct(Data.Default.HostSign, (int)e.Sign));
+
         }
 
     }
